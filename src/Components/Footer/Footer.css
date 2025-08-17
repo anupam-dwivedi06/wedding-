@@ -1,0 +1,55 @@
+  .footer-container{
+    padding: 2vw 0;
+    background-color: rgb(123,117,0);
+    margin-top: 5vw;
+    /* color: rgb(123, 53, 40); */
+    color: white;
+     font-family: 'Poppins', sans-serif;
+  }
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 5vw; 
+  }
+
+  .foot ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* font-size: 1vw; */
+  }
+
+  .foot-head{
+    font-weight: 600;
+    font-size: 1.5vw;
+    color: rgb(39, 1, 74);
+  }
+
+  .foot-img{
+    display: flex;
+    font-size: 1.8vw;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .foot-img i{
+    transition: all ease-out 0.2s;
+  }
+  .foot-img i:hover{
+    scale: 1.1;
+    color: rgb(71,178,228);
+  }
+
+  .copyright{
+    text-align: center;
+    padding: 20px;
+    background-color: brown;
+    color: white;
+    font-size: 1.2vw;
+    /* margin-top: 20px; */
+  }
+
+  .foot li a{
+    text-decoration: none;
+   /* color: rgb(123, 53, 40); */
+   color: white;
+  }

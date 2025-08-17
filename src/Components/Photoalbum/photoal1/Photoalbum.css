@@ -1,0 +1,170 @@
+/* General Body & Container */
+.bodys {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.gallery-container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;    
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery-thumbnail {
+    width: 100%;
+    height: 150px; /* Fixed height for thumbnails */
+    object-fit: cover; /* Ensures images fill the space without distortion */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-thumbnail:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal (Lightbox) Styles */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    box-sizing: border-box;
+    padding: 20px; /* Padding for small screens */
+}
+
+.modal-content-wrapper {
+    position: relative; /* For positioning nav buttons and close */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    max-height: 90%; /* Max height of content wrapper */
+    background-color: transparent; /* Wrapper itself is transparent */
+}
+
+.modal-image {
+    display: block; /* Remove extra space below image */
+    max-width: 100%;
+    max-height: 80vh; /* Limit image height relative to viewport */
+    object-fit: contain; /* Ensure image fits without cropping */
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.modal-caption {
+    margin-top: 10px;
+    color: #ccc;
+    font-size: 18px;
+    text-align: center;
+    max-width: 100%;
+    overflow-wrap: break-word; /* Break long words */
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Above modal content */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    z-index: 1001; /* Above modal image */
+}
+
+.nav-button.prev {
+    left: -60px; /* Position relative to content wrapper */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.nav-button.next {
+    right: -60px; /* Position relative to content wrapper */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Adjust button position for smaller screens */
+@media (max-width: 768px) {
+    .nav-button.prev {
+        left: 5px; /* Stay within viewport */
+        top: 20px;
+        transform: translateY(0);
+    }
+    .nav-button.next {
+        right: 5px; /* Stay within viewport */
+        top: 20px;
+        transform: translateY(0);
+    }
+    .close-button {
+        top: 5px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+
+/* On hover, add a darker background */
+.nav-button:hover {
+    background-color: rgba(0,0,0,0.8);
+}

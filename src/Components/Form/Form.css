@@ -1,0 +1,129 @@
+.contact-container {
+  display: flex;
+  gap: 140px;
+  padding: 40px;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+  justify-content: center;
+  margin-top: 5vw;
+  background-color: antiquewhite;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  flex: 1 1 500px;
+  max-width: 550px;
+  box-sizing: border-box;
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 50px;
+}
+
+.form-description {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input {
+  width: calc(100% - 20px);
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.submit-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.submit-message.failure {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.form-big-heading{
+    margin-top: 5vw;
+}
+
+h1{
+    text-align: center;
+    font-size: 3vw;
+}
+
+h2{
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .map-card iframe {
+    height: 300px;
+  }
+}
+

@@ -1,0 +1,114 @@
+
+  .work-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+     font-family: 'Poppins', sans-serif;
+  }
+
+  .work-heading{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 3vw;
+     font-family: 'Poppins', sans-serif;
+  }
+
+  .work-heading h1{
+    font-size: 3.5vw;
+     font-family: 'Poppins', sans-serif;
+  }
+
+  .work-show{
+    width: 29vw;
+    height: auto;
+    /* border: 2px solid pink; */
+    box-shadow: 
+    0 4px 20px rgba(123, 117, 0, 0.3),
+    0 1px 20px rgba(123, 117, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-color: antiquewhite;
+    border: 2px solid rgb(123, 117, 0);
+     font-family: 'Poppins', sans-serif;
+    transition: all ease-out 0.3s;
+
+    animation: appears linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+  }
+  .work-show:hover{
+    scale: 1.02;
+  }
+
+
+
+  .work1{
+    width: 29vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .work1 img{
+    width: 28vw;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .gola{
+    width: 4vw;
+    height: 3vw;
+    border-radius: 50%;
+    background-color: rgb(123,117,0);
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .work-name{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+     font-family: 'Poppins', sans-serif;
+  }
+
+  .work-name h1{
+    font-size: 1.7vw;
+    text-align: left;
+     font-family: 'Poppins', sans-serif;
+  }
+
+  .work-para{
+    padding: 7px 35px;
+     font-family: 'Poppins', sans-serif;
+     color: rgb(123, 53, 40);
+  }
+
+  .work-list{
+    padding: 10px 10px;
+    color: rgb(123, 53, 40);
+  }
+
+  .work-list ul{
+    list-style-type: none;
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+     font-family: 'Poppins', sans-serif;
+  }
+
+   .work-list ul li{
+    font-size: 1vw;
+     font-family: 'Poppins', sans-serif;
+   }
+  .work-list ul li i{
+    padding: 0px 10px;
+    color: rgb(123,117,0);
+  }
