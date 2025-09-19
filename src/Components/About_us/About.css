@@ -1,68 +1,113 @@
+/* GLOBAL STYLES & RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Good practice for responsive design */
+    font-family: 'Poppins', sans-serif;
+}
 
-.about-container{
+/* --- DESKTOP/BASE STYLES --- */
+.about-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5vw;
-    padding-top: 3vw;
-     font-family: 'Poppins', sans-serif;
+    gap: 1.5rem; /* Using rem units for consistent spacing */
+    padding-top: 3rem;
 }
 
-.about-heading{
+.about-heading {
     display: flex;
     justify-content: center;
-     font-family: 'Poppins', sans-serif;
 }
 
-
-.about-heading h1{
-    font-size: 4vw;
-     font-family: 'Poppins', sans-serif;
+.about-heading h1 {
+    font-size: 3.5rem; /* Using rem units for font size */
+    color: rgb(85, 27, 37);
 }
 
-.para-img{
-    width: 90vw;
+.para-img {
+    width: 90%; /* Using percentage for responsive width */
+    max-width: 1200px; /* Optional: to prevent it from getting too wide on huge screens */
     margin: auto;
-    padding: 2vw;
+    padding: 2rem;
     border: 2px solid rgb(129, 32, 0);
     border-radius: 24px;
     display: flex;
-    /* flex-wrap: wrap; */
-    gap: 2vw;
+    gap: 2rem;
     background-color: antiquewhite;
 }
 
-.about-para{
+.about-para {
     display: flex;
     flex-direction: column;
-    gap: 2.5vw;
-    width: 70vw;
-     font-family: 'Poppins', sans-serif;
-     color: rgb(123,53,40);
-     font-weight: 600;
+    gap: 1.5rem; /* Using rem */
+    width: 70%; /* Using percentage */
+    color: rgb(123, 53, 40);
+    font-weight: 600;
 }
 
-.para-in-img{
+.about-para p {
+    /* No width needed here, it will take up its parent's width */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.para-in-img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20vw;
+    width: 30%; /* Using percentage */
+    flex-shrink: 0; /* Prevents the image container from shrinking */
 }
 
-.para-in-img img{
-    width: 22vw;
+.para-in-img img {
+    width: 100%; /* Image takes up the full width of its container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px;
 }
 
-.about-para p{
-    width: 60vw;
-     font-family: 'Poppins', sans-serif;
-}
-
-.icon-para{
+.icon-para {
     display: flex;
-    gap: 2vw;
+    gap: 1rem;
+    align-items: flex-start; /* Aligns the icon to the top of the paragraph */
 }
 
-.icon-para i{
-    font-size: 2vw;
+.icon-para i {
+    font-size: 1.5rem; /* Using rem */
     color: rgb(129, 32, 0);
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+@media screen and (max-width: 768px) {
+    .about-container {
+        padding-top: 1.5rem;
+    }
+    
+    .about-heading h1 {
+        font-size: 2.5rem;
+    }
+    
+    .para-img {
+        flex-direction: column; /* STACK CONTENT VERTICALLY */
+        width: 95%;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .about-para {
+        width: 100%; /* Full width on mobile */
+        gap: 1rem;
+    }
+    
+    .about-para p {
+        font-size: 0.9rem;
+    }
+    
+    .para-in-img {
+        width: 100%; /* Full width on mobile */
+    }
+    
+    .icon-para i {
+        font-size: 1.2rem;
+    }
 }

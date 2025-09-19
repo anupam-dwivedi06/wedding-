@@ -1,58 +1,59 @@
+/* GLOBAL STYLES */
+* {
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- DESKTOP/BASE STYLES --- */
+
 .text-heading-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.8rem; /* Use rem for consistent spacing */
   align-items: center;
-  margin-top: 3vw;
-   font-family: 'Poppins', sans-serif;
+  margin-top: 2rem; /* Use rem for top margin */
 }
 
 .text-heading-container h2 {
-  font-size: 3.5vw;
-   font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem; /* Use rem for a more stable font size */
 }
 
 /* Container for all customer testimonials */
 .customer-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Makes it responsive */
-  gap: 20px;
-  padding-top: 50px;
-  /* color: white; */
-   font-family: 'Poppins', sans-serif;
+  justify-content: center; /* Center the cards horizontally */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if the screen is too small */
+  gap: 2rem; /* Consistent spacing between cards */
+  padding-top: 3rem; /* Use rem */
 }
 
 /* Individual testimonial card */
 .customer-card {
   border: 2px solid rgb(123, 117, 0);
-  width: 27vw;
-  min-width: 280px;
+  width: 30%; /* Set a percentage-based width to fit 3 cards per row */
+  min-width: 280px; /* Prevents cards from becoming too narrow on smaller desktops */
   height: auto;
   border-radius: 10px;
-  padding: 10px 20px;
-  box-shadow: 0 4px 6px rgba(8, 114, 191, 0.1),
-              0 8px 20px rgba(8, 114, 191, 0.2);
-  /* background-color: rgba(255, 255, 255, 0.05); optional subtle background */
+  padding: 1rem 1.25rem; /* Use rem for padding */
+  box-shadow: 0 4px 6px rgba(8, 114, 191, 0.1), 0 8px 20px rgba(8, 114, 191, 0.2);
   background-color: antiquewhite;
   transition: transform 0.3s ease-out;
-   font-family: 'Poppins', sans-serif;
 }
 
 .customer-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Slightly reduced scale for a subtler effect */
 }
 
 /* Testimonial message */
 .say {
-  padding-top: 15px;
+  padding-top: 1rem;
   color: rgb(123, 53, 40);
 }
 
 /* Photo + Name + Role block */
 .customer-photo {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -61,40 +62,41 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-   font-family: 'Poppins', sans-serif;
 }
 
-.customer-info p{
+.customer-info p {
   color: brown;
   font-weight: 600;
 }
 
-.text-color{
+.text-color {
   color: brown;
 }
-/* Optional: Responsive text color */
 
-button{
-    padding: 0.7vw 2vw;
-    margin-top: 1.5vw;
-    background-color: rgb(123, 117, 0);
-    color: white;
-    border: none;
-    border-radius: 5px;
+button {
+  padding: 0.7rem 2rem;
+  margin-top: 1.5rem;
+  background-color: rgb(123, 117, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-/* Responsive adjustments */
+/* --- MOBILE RESPONSIVE STYLES --- */
+
 @media (max-width: 900px) {
   .customer-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* STACKS THE CARDS VERTICALLY */
+    align-items: center; /* Centers the stacked cards */
+    gap: 1.5rem; /* Adjust gap for mobile */
   }
 
   .customer-card {
-    width: 80vw;
+    width: 90%; /* On mobile, cards take up 90% of the screen width */
+    max-width: none; /* Removes the desktop max-width limit */
   }
 
   .text-heading-container h2 {
-    font-size: 5vw;
+    font-size: 2rem; /* A more appropriate font size for mobile */
   }
 }

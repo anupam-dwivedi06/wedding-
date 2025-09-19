@@ -1,114 +1,190 @@
+/* GLOBAL STYLES */
+* {
+    box-sizing: border-box; /* Essential for responsive padding/borders */
+    font-family: 'Poppins', sans-serif;
+}
 
-  .work-wrapper{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 70px;
-     font-family: 'Poppins', sans-serif;
-  }
+.container {
+    max-width: 1200px; /* Constrain content width */
+    margin: 0 auto;
+    padding: 0 1rem; /* Add some default horizontal padding */
+}
 
-  .work-heading{
+/* --- DESKTOP/BASE STYLES --- */
+.work-container {
+    padding-top: 3rem;
+}
+
+.work-heading {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 3vw;
-     font-family: 'Poppins', sans-serif;
-  }
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
 
-  .work-heading h1{
-    font-size: 3.5vw;
-     font-family: 'Poppins', sans-serif;
-  }
+.work-heading h1 {
+    font-size: 2.8rem; /* Fixed font size */
+    color: #333;
+}
 
-  .work-show{
-    width: 29vw;
+.work-heading p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.work-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem; /* Spacing between cards */
+    margin-top: 4rem;
+}
+
+.work-show {
+    width: 30%; /* Three cards will fit nicely */
     height: auto;
-    /* border: 2px solid pink; */
     box-shadow: 
-    0 4px 20px rgba(123, 117, 0, 0.3),
-    0 1px 20px rgba(123, 117, 0, 0.1);
+        0 4px 20px rgba(123, 117, 0, 0.3),
+        0 1px 20px rgba(123, 117, 0, 0.1);
     border-radius: 10px;
-    padding: 20px 10px;
+    padding: 1.25rem 0.75rem;
     background-color: antiquewhite;
     border: 2px solid rgb(123, 117, 0);
-     font-family: 'Poppins', sans-serif;
     transition: all ease-out 0.3s;
+}
 
-    animation: appears linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 35%;
-  }
-  .work-show:hover{
-    scale: 1.02;
-  }
+.work-show:hover {
+    transform: scale(1.02); /* Use transform instead of scale for better control */
+}
 
-
-
-  .work1{
-    width: 29vw;
+/* Image Styling */
+.work1 {
+    width: 100%; /* Take full width of parent card */
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-  }
+    align-items: center;
+    margin-bottom: 1rem;
+}
 
-  .work1 img{
-    width: 28vw;
-    overflow: hidden;
+.work1 img {
+    width: 100%;
+    max-height: 200px; /* Optional: constrain image height */
+    object-fit: cover;
     border-radius: 8px;
-  }
-  .gola{
-    width: 4vw;
-    height: 3vw;
+}
+
+/* Number Circle Styling */
+.gola {
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
-    background-color: rgb(123,117,0);
-    font-size: 1vw;
+    background-color: rgb(123, 117, 0);
+    font-size: 1rem;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-  }
+    flex-shrink: 0;
+}
 
-  .work-name{
-    padding: 10px;
+.work-name {
+    padding: 0.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
-     font-family: 'Poppins', sans-serif;
-  }
+    gap: 1rem;
+}
 
-  .work-name h1{
-    font-size: 1.7vw;
+.work-name h1 {
+    font-size: 1.1rem; /* Adjusted for readability */
     text-align: left;
-     font-family: 'Poppins', sans-serif;
-  }
+}
 
-  .work-para{
-    padding: 7px 35px;
-     font-family: 'Poppins', sans-serif;
-     color: rgb(123, 53, 40);
-  }
-
-  .work-list{
-    padding: 10px 10px;
+.work-para {
+    padding: 0.5rem 1.5rem 1rem;
     color: rgb(123, 53, 40);
-  }
+    font-size: 0.95rem;
+}
 
-  .work-list ul{
+.work-list {
+    padding: 0.5rem 0.5rem;
+    color: rgb(123, 53, 40);
+}
+
+.work-list ul {
     list-style-type: none;
-    padding: 5px 5px;
+    padding: 0.5rem 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-     font-family: 'Poppins', sans-serif;
-  }
+    gap: 0.5rem;
+}
 
-   .work-list ul li{
-    font-size: 1vw;
-     font-family: 'Poppins', sans-serif;
-   }
-  .work-list ul li i{
-    padding: 0px 10px;
-    color: rgb(123,117,0);
-  }
+.work-list ul li {
+    font-size: 0.9rem;
+}
+
+.work-list ul li i {
+    padding-right: 0.5rem;
+    color: rgb(123, 117, 0);
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+
+@media screen and (max-width: 768px) {
+    .work-heading h1 {
+        font-size: 2rem;
+    }
+    
+    .work-heading p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+
+    .work-wrapper {
+        flex-direction: column; /* STACK THE CARDS VERTICALLY */
+        align-items: center;
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    .work-show {
+        width: 90%; /* Take up most of the mobile screen width */
+        max-width: 400px; /* Max width for large phones/small tablets */
+        padding: 1rem;
+    }
+
+    .work1 {
+        /* Ensure the image container still takes up 100% of the card */
+        width: 100%;
+    }
+
+    .work1 img {
+        /* Image now scales perfectly within the card */
+        max-height: 150px; 
+    }
+
+    .gola {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .work-name {
+        /* Adjust alignment and padding */
+        padding: 0.5rem 0;
+        gap: 0.8rem;
+    }
+
+    .work-name h1 {
+        font-size: 1rem;
+    }
+
+    .work-para {
+        padding: 0.5rem 1rem 0.5rem 0.5rem; /* Adjusted padding */
+        font-size: 0.9rem;
+    }
+    
+    .work-list ul li {
+        font-size: 0.85rem;
+    }
+}

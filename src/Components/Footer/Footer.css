@@ -1,55 +1,117 @@
-  .footer-container{
-    padding: 2vw 0;
-    background-color: rgb(123,117,0);
-    margin-top: 5vw;
-    /* color: rgb(123, 53, 40); */
+/* GLOBAL STYLES */
+* {
+    box-sizing: border-box;
+}
+
+/* --- DESKTOP/BASE STYLES (Using rem/px instead of vw) --- */
+.footer-container {
+    padding: 2rem 0; /* Use rem */
+    background-color: rgb(123, 117, 0);
+    margin-top: 3rem; /* Use rem */
     color: white;
-     font-family: 'Poppins', sans-serif;
-  }
-  .footer{
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer {
     display: flex;
     justify-content: space-between;
-    padding: 2vw 5vw; 
-  }
+    padding: 2rem 4rem; /* Use rem for padding */
+    max-width: 1400px; /* Optional: Constrain max width */
+    margin: 0 auto; /* Center the footer content */
+}
 
-  .foot ul{
+/* Individual Footer Column */
+.foot ul {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* font-size: 1vw; */
-  }
+    gap: 1rem; /* Use rem for spacing */
+    padding: 0;
+    list-style: none; /* Remove bullet points */
+}
 
-  .foot-head{
+.foot li {
+    font-size: 0.95rem; /* Base font size in rem */
+}
+
+.foot-head {
     font-weight: 600;
-    font-size: 1.5vw;
+    font-size: 1.3rem; /* Use rem for header size */
     color: rgb(39, 1, 74);
-  }
+    margin-bottom: 0.5rem;
+}
 
-  .foot-img{
+.foot li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.foot li a:hover {
+    color: #f0f0f0; /* Slight hover effect */
+}
+
+.foot-img {
     display: flex;
-    font-size: 1.8vw;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  .foot-img i{
-    transition: all ease-out 0.2s;
-  }
-  .foot-img i:hover{
-    scale: 1.1;
-    color: rgb(71,178,228);
-  }
+    font-size: 1.5rem; /* Use rem for icon size */
+    gap: 1rem;
+    margin-top: 1rem;
+}
 
-  .copyright{
+.foot-img i {
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+}
+
+.foot-img i:hover {
+    transform: scale(1.1);
+    color: rgb(71, 178, 228);
+}
+
+.copyright {
     text-align: center;
-    padding: 20px;
+    padding: 1rem;
     background-color: brown;
     color: white;
-    font-size: 1.2vw;
-    /* margin-top: 20px; */
-  }
+    font-size: 0.9rem; /* Use rem */
+}
 
-  .foot li a{
-    text-decoration: none;
-   /* color: rgb(123, 53, 40); */
-   color: white;
-  }
+/* --- MOBILE RESPONSIVE STYLES --- */
+
+@media screen and (max-width: 768px) {
+    .footer {
+        /* STACK COLUMNS VERTICALLY */
+        flex-direction: column; 
+        padding: 1.5rem 1rem; /* Reduced padding */
+        gap: 2rem; /* Spacing between stacked columns */
+    }
+
+    /* Center all content in the stacked columns */
+    .foot {
+        text-align: center;
+        width: 100%; /* Ensure each column takes full width */
+    }
+
+    .foot ul {
+        align-items: center; /* Center list items */
+        gap: 0.5rem; /* Reduced gap between list items */
+    }
+
+    .foot-head {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .foot li {
+        font-size: 0.9rem;
+    }
+    
+    .foot-img {
+        justify-content: center; /* Center icons on mobile */
+        margin-top: 0.8rem;
+    }
+
+    .copyright {
+        font-size: 0.8rem;
+        padding: 0.8rem;
+    }
+}

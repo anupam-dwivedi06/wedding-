@@ -23,10 +23,11 @@ const Footer = () => {
           <div className="foot foot2">
             <ul>
               <li className="foot-head">Useful Links</li>
-              <li><a href="">Home</a></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Terms of Services</a></li>
+              {/* Assuming these are react-router-dom Links or actual routing is handled elsewhere */}
+              <li><a href="#home">Home</a></li> 
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#terms">Terms of Services</a></li>
             </ul>
           </div>
 
@@ -36,7 +37,6 @@ const Footer = () => {
               <li>Photography & Videography</li>
               <li>Makeup & Bridal Makeover</li>
               <li>Optional Add-Ons </li>
-              {/* <li>Marketing</li> */}
             </ul>
           </div>
 
@@ -47,12 +47,13 @@ const Footer = () => {
               <li><span>Phone:</span> 8318421898</li>
               <li><span>Email:</span> info@example.com</li>
             </ul>
-            {/* <div className="foot-img">
-              <FaXTwitter />
-              <FaFacebook />
-              <FaInstagramSquare />
-              <FaLinkedin />
-            </div> */}
+            {/* Adding basic social icons (requires Font Awesome setup or replace with React Icons) */}
+            <div className="foot-img"> 
+              <i className="fa-brands fa-x-twitter"></i>
+              <i className="fa-brands fa-facebook-f"></i>
+              <i className="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-linkedin-in"></i>
+            </div>
           </div>
         </div>
       </section>
