@@ -1,0 +1,185 @@
+/* Base Styles & Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff6eb; /* Matches the light background in the image */
+    font-family: Arial, sans-serif;
+}
+
+/* --- FOUNDER NOTE CONTAINER LAYOUT (DESKTOP) --- */
+
+.founder-note-section {
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.founder-note-container {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
+    gap: 5%;
+}
+
+/* 1. IMAGE COLLAGE COLUMN */
+.collage-column {
+    flex: 0 0 45%; /* Takes 45% of the container width */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 3rem;
+}
+
+.collage-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Fixed height for the collage area on desktop */
+}
+
+/* Base style for all collage images */
+.collage-wrapper img {
+    position: absolute;
+    width: 55%; /* Base width for image inside wrapper */
+    height: auto;
+    background-color: white; /* Polaroid background */
+    border: 8px solid white; /* Polaroid frame */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Specific positioning and rotation for each of the FOUR images */
+.collage-image-1 img {
+    top: 0;
+    left: 10%;
+    transform: rotate(-10deg);
+}
+
+.collage-image-2 img {
+    top: 25%;
+    left: 5%;
+    transform: rotate(3deg);
+}
+
+.collage-image-3 img {
+    top: 45%;
+    left: 20%;
+    transform: rotate(-5deg);
+}
+
+.collage-image-4 img { /* New position for the bottom-right image */
+    bottom: 0;
+    left: 35%;
+    transform: rotate(5deg);
+}
+
+/* 2. TEXT CONTENT COLUMN */
+.content-column {
+    flex: 0 0 50%; /* Takes 50% of the container width */
+    padding: 2rem 0;
+}
+
+.content-column h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.founder-note-head {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.content-column p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    color: #444;
+}
+
+.founder-signature {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* --- MOBILE RESPONSIVENESS --- */
+
+@media (max-width: 900px) {
+    .founder-note-container {
+        flex-direction: column; /* Stack columns vertically */
+        width: 95%;
+    }
+
+    /* 1. IMAGE COLLAGE COLUMN ADJUSTMENTS */
+    .collage-column {
+        flex-basis: auto;
+        width: 100%;
+        height: 500px; /* Adjusted height for mobile to fit 4 images */
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .collage-wrapper {
+        height: 100%;
+    }
+    
+    /* Adjust image size and positioning for smaller screens */
+    .collage-wrapper img {
+        width: 45%; 
+        border-width: 4px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Repositioned four images for mobile stack */
+    .collage-image-1 img {
+        top: 0;
+        left: 5%;
+        transform: rotate(-5deg);
+    }
+
+    .collage-image-2 img {
+        top: 20%;
+        left: 50%;
+        transform: rotate(5deg);
+    }
+
+    .collage-image-3 img {
+        top: 40%;
+        left: 10%;
+        transform: rotate(-3deg);
+    }
+
+    .collage-image-4 img {
+        bottom: 5%;
+        left: 45%;
+        transform: rotate(8deg);
+    }
+
+    /* 2. TEXT CONTENT COLUMN ADJUSTMENTS */
+    .content-column {
+        flex-basis: auto;
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .content-column h2 {
+        font-size: 2rem;
+    }
+    
+    .founder-note-head {
+        font-size: 1rem;
+    }
+
+    .content-column p {
+        font-size: 0.9rem;
+    }
+}
