@@ -30,7 +30,7 @@ function Navbar() {
                 <NavLink to={'/'} className='navlink' activeClassName='active'>Home</NavLink>
               </li>
               <li onClick={() => setIsOpen(false)}>
-                <NavLink to={'/About'} className='navlink' activeClassName='active'>About</NavLink>
+                <NavLink to={'/navabout'} className='navlink' activeClassName='active'>About</NavLink>
               </li>
               <li onClick={() => setIsOpen(false)}>
                 <NavLink to={'/Work'} className='navlink' activeClassName='active'>Work</NavLink>
