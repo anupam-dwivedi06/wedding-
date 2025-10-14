@@ -1,12 +1,12 @@
 import React from 'react';
 import './NavAbout.css';
 
-const collageImages = [
-    { src: 'path/to/image1.jpg', alt: 'Early work photo 1' },
-    { src: 'path/to/image2.jpg', alt: 'Early work photo 2' },
-    { src: 'path/to/image3.jpg', alt: 'Early work photo 3' },
-    { src: 'path/to/image4.jpg', alt: 'Early work photo 4' },
-];
+// const collageImages = [
+//     { src: 'path/to/image1.jpg', alt: 'Early work photo 1' },
+//     { src: 'path/to/image2.jpg', alt: 'Early work photo 2' },
+//     { src: 'path/to/image3.jpg', alt: 'Early work photo 3' },
+//     { src: 'path/to/image4.jpg', alt: 'Early work photo 4' },
+// ];
 
 function NavAbout() {
     return (
@@ -19,16 +19,16 @@ function NavAbout() {
                         {/* Placeholder for images based on the screenshot */}
                         <div className="collage-image-1">
                             {/* Replace with actual image source */}
-                            <img src="IMAGE_1_PLACEHOLDER" alt="Early setup image" />
+                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760456207/About01_tqjhlp.jpg" alt="Early setup image" />
                         </div>
                         <div className="collage-image-2">
-                            <img src="IMAGE_2_PLACEHOLDER" alt="Old photography setup" />
+                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760456219/About02_avobyk.jpg" alt="Old photography setup" />
                         </div>
                         <div className="collage-image-3">
-                            <img src="IMAGE_3_PLACEHOLDER" alt="Current team meeting" />
+                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760456232/About03_duak12.jpg" alt="Current team meeting" />
                         </div>
                         <div className="collage-image-4">
-                            <img src="IMAGE_3_PLACEHOLDER" alt="Current team meeting" />
+                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760456238/About04_uwgopf.jpg" alt="Current team meeting" />
                         </div>
                     </div>
                 </div>
