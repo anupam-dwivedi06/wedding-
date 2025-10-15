@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import './Photoalbum.css'; 
+import './Photoalbum3.css'; 
 
 const imagesData = [
-  { id: 1, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham02_n7s0tn.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham02_n7s0tn.jpg', alt: 'Subham image 2' },
-  { id: 2, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham06_j1mjs0.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham06_j1mjs0.jpg', alt: 'Subham image 6' },
-  { id: 3, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham05_u6mg6u.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham05_u6mg6u.jpg', alt: 'Subham image 5' },
-  { id: 4, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham03_fpnuqe.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham03_fpnuqe.jpg', alt: 'Subham image 3' },
-  { id: 5, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham10_px5bl3.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham10_px5bl3.jpg', alt: 'Subham image 10' },
-  { id: 6, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham07_kcza2m.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham07_kcza2m.jpg', alt: 'Subham image 7' },
-  { id: 7, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham01_j6qy0s.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551249/Subham01_j6qy0s.jpg', alt: 'Subham image 1' },
-  { id: 8, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551251/Subham09_pmuwdo.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551251/Subham09_pmuwdo.jpg', alt: 'Subham image 9' },
-  { id: 9, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551250/Subham11_fi7x93.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551250/Subham11_fi7x93.jpg', alt: 'Subham image 11' },
-  { id: 10, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551250/Subham04_i1hbur.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551250/Subham04_i1hbur.jpg', alt: 'Subham image 4' },
-  { id: 11, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551251/Subham12_wgqati.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551251/Subham12_wgqati.jpg', alt: 'Subham image 12' },
-  { id: 12, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551250/Subham08_i6reuu.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551250/Subham08_i6reuu.jpg', alt: 'Subham image 8' },
+  { id: 1, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457528/Subham02_smyb8y.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457528/Subham02_smyb8y.jpg', alt: 'A beautiful mountain landscape' },
+  { id: 2, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457531/Subham06_zmgjbn.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457531/Subham06_zmgjbn.jpg', alt: 'City skyline at sunset' },
+  { id: 3, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457533/Subham03_yxu9bl.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457533/Subham03_yxu9bl.jpg', alt: 'Abstract colorful painting' },
+  { id: 4, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457535/Subham04_x9w0hp.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457535/Subham04_x9w0hp.jpg', alt: 'Close-up of a blooming flower' },
+  { id: 5, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457536/Subham07_qlwc8f.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457536/Subham07_qlwc8f.jpg', alt: 'Coastal view with crashing waves' },
+  { id: 6, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457538/Subham01_olhq2f.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457538/Subham01_olhq2f.jpg', alt: 'Forest path in autumn' },
+  { id: 7, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457538/Subham05_a8vj8l.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457538/Subham05_a8vj8l.jpg', alt: 'Sunset over calm water' },
+  { id: 8, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457541/Subham11_her9ar.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457541/Subham11_her9ar.jpg', alt: 'Night sky full of stars' },
+  { id: 9, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457547/Subham08_tfociv.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457547/Subham08_tfociv.jpg', alt: 'Snow-covered mountain range' },
+  { id: 10, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457547/Subham10_gs5lv1.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457547/Subham10_gs5lv1.jpg', alt: 'Vintage car on a road' },
+  { id: 11, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457547/Subham09_bpkjby.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457547/Subham09_bpkjby.jpg', alt: 'Peaceful lake reflection' },
+  { id: 12, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457570/Subham12_dgvkrg.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760457570/Subham12_dgvkrg.jpg', alt: 'Colorful city street' },
 ];
-
 
 
 const TestiPhoto = () => {
