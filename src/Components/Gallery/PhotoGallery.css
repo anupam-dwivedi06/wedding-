@@ -8,43 +8,51 @@ body {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: nowrap;
   scroll-behavior: smooth;
   cursor: grab;
-  padding: 20px;
-  gap: 20px;
+  padding: 0;
+  gap: 10px;
   user-select: none;
   margin-top: 3vw;
-}
-
-.slider {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  perspective: 1000px; /* for 3D effect */
 }
 
 .slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
-
+.slider {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
 .slider.active {
   cursor: grabbing;
 }
 
 .card {
-  flex: 0 0 25vw; 
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
+  flex: 0 0 auto;
+  transition: transform 0.3s, filter 0.3s;
+  transform-origin: center center;
+  filter: brightness(0.8);
 }
 
 .card img {
-  width: 20vw;
-  height: auto;
   display: block;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
   border-radius: 12px;
+  pointer-events: none;
+}
+
+/* Center card styling */
+.card.center {
+  transform: rotateY(0deg) scale(1.1);
+  filter: brightness(1);
+}
+
+/* Side cards styling */
+.card:not(.center) {
+  transform: rotateY(15deg) scale(0.85);
+  filter: brightness(0.7);
 }

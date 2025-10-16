@@ -4,6 +4,7 @@ import About from './Components/About_us/About'
 import Services from './Components/Services/Services'
 import Form from './Components/Form/Form'
 import Testimonials from './Components/Testimonials/Tesitimonial'
+import NewFooter from './Components/NewFooter/NewFooter'
 
 function Home() {
 
@@ -11,10 +12,11 @@ function Home() {
     <>
     <Hero/>
     <PhotoApp/>
-    <About/>
+    {/* <About/> */}
     <Services/>
-    <Form/>
+    {/* <Form/> */}
     <Testimonials/>
+
     </>
   )
 }

@@ -13,7 +13,7 @@
 /* --- DESKTOP/BASE STYLES --- */
 
 .nav-container {
-    background-color: brown;
+    background-color: #3B3023;
     display: flex;
     justify-content: space-between;
     align-items: center; /* Vertically align items */
