@@ -1,5 +1,5 @@
 import React from 'react';
-import './tesimonials.css'
+import './tesimonials.css';
 import { useNavigate } from 'react-router-dom';
 
 const testimonials = [
@@ -30,28 +30,53 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-
   const navigate = useNavigate();
+
   return (
-    <section className="testimonials">
+    <section className="testimonials-section">
       <div className="container">
-        <div className="text-heading-container">
-          <h2>Testimonials</h2>
-          <h1>What Our Customers Say</h1>
+        
+        {/* === TEXT FROM YOUR IMAGE: Utsav Company Motto === */}
+        <div className="company-motto">
+          <p className="since-text">
+            <span className='line-start'>Since 2001 Utsav</span> has been turning moments into lifelong memories With a passion for perfection.
+          </p>
+          <p className="mission-text">
+            Our passion is to capturing precious moments on film for our clients,
+            immortalizing special events and creating keepsakes to treasure forever.
+          </p>
+          <h2 className="blessing-quote">
+            "Our Couples, Our biggest blessings."
+          </h2>
         </div>
+        {/* =========================================== */}
+{/*         
+        <div className="text-heading-container">
+          <h3 className="section-subtitle">Testimonials</h3>
+          <h1 className="section-title">What Our Customers Say</h1>
+        </div> */}
 
         <div className="customer-container">
           {testimonials.map((testimonial, index) => (
             <div className="customer-card" key={index}>
-              <div className="customer-photo">
-                {/* <img src={testimonial.imgSrc} alt={testimonial.alt} /> */}
-                <div className="customer-info">
-                  <h3 className="text-color">{testimonial.name}</h3>
-                  <p>{testimonial.role}</p>
-                </div>
-              </div>
               <p className="say">{testimonial.message}</p>
-              <button onClick = {()=> navigate(testimonial.route)}>Photo Gallery</button>
+              
+              <div className="card-footer">
+                  <div className="customer-photo">
+                    {/* Placeholder for photo/initials */}
+                    <div className="initials-placeholder">
+                        {testimonial.name.charAt(0)}
+                    </div>
+                    <div className="customer-info">
+                      <h4 className="customer-name">{testimonial.name}</h4>
+                      <p className="customer-role">{testimonial.role}</p>
+                    </div>
+                  </div>
+                  <button className="gallery-button" onClick={() => navigate(testimonial.route)}>
+                    View Gallery 📸
+                  </button>
+              </div>
+
             </div>
           ))}
         </div>

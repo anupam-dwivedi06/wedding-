@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import NewFooter from "./Components/NewFooter/NewFooter";
 import NewContact from "./Components/NewContactForm/NewContact";
+import FAQ from "./Components/FAQ/FAQ";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/photgallery3" element={<Photoalbum3 />} />
           <Route path="/navabout" element={< NavAbout />} />
           <Route path="/newcontact" element={< NewContact/>} />
+          <Route path="faqs" element={< FAQ />} />
         </Routes>
         <NewFooter />
       </Router>

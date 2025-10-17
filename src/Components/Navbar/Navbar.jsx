@@ -33,10 +33,10 @@ function Navbar() {
                 <NavLink to={'/navabout'} className='navlink' activeClassName='active'>About</NavLink>
               </li>
               <li onClick={() => setIsOpen(false)}>
-                <NavLink to={'/Work'} className='navlink' activeClassName='active'>Work</NavLink>
+                <NavLink to={'/faqs'} className='navlink' activeClassName='active'>FAQ</NavLink>
               </li>
               <li onClick={() => setIsOpen(false)}>
-                <NavLink to={'/Contact'} className='navlink' activeClassName='active'>Contact</NavLink>
+                <NavLink to={'/newcontact'} className='navlink' activeClassName='active'>Contact</NavLink>
               </li>
             </ul>
           </div>

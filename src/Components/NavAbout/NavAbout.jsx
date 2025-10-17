@@ -58,6 +58,20 @@ function NavAbout() {
                     </p>
                 </div>
             </div>
+            
+            {/* NEW: Footer Hero Image Section */}
+            <div className="footer-hero">
+                <img 
+                    src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760615823/AboutFooterPhoto_mznakc.jpg" 
+                    alt="Couple performing wedding rituals"
+                    className="footer-hero-image"
+                />
+                <div className="hero-content-overlay">
+                    <p>YOUR MEMORIES DESERVE THE PERFECT FRAME.</p>
+                    <button className="contact-button">Contact us</button>
+                </div>
+            </div>
+            {/* END: Footer Hero Image Section */}
         </div>
     );
 }

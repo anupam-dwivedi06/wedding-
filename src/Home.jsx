@@ -4,13 +4,14 @@ import About from './Components/About_us/About'
 import Services from './Components/Services/Services'
 import Form from './Components/Form/Form'
 import Testimonials from './Components/Testimonials/Tesitimonial'
-import NewFooter from './Components/NewFooter/NewFooter'
+import NewHero from './Components/NewHero.jsx/NewHero'
 
 function Home() {
 
   return (
     <>
-    <Hero/>
+    {/* <Hero/> */}
+    <NewHero />
     <PhotoApp/>
     {/* <About/> */}
     <Services/>
