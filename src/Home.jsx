@@ -5,6 +5,7 @@ import Services from './Components/Services/Services'
 import Form from './Components/Form/Form'
 import Testimonials from './Components/Testimonials/Tesitimonial'
 import NewHero from './Components/NewHero.jsx/NewHero'
+import UpFooter from './Components/UpFooter/UpFooter'
 
 function Home() {
 
@@ -17,6 +18,7 @@ function Home() {
     <Services/>
     {/* <Form/> */}
     <Testimonials/>
+    <UpFooter />
 
     </>
   )
