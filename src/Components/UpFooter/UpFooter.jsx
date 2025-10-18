@@ -121,7 +121,7 @@ const UpFooter = () => {
 
         @media (max-width: 480px) {
           .hero-section {
-            height: 25vh;
+            height: 30vh;
             background-position: top center;
           }
 
