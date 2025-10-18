@@ -6,6 +6,7 @@ import Form from './Components/Form/Form'
 import Testimonials from './Components/Testimonials/Tesitimonial'
 import NewHero from './Components/NewHero.jsx/NewHero'
 import UpFooter from './Components/UpFooter/UpFooter'
+import BookNow from './Components/BookNow/BookNow'
 
 function Home() {
 
@@ -15,9 +16,10 @@ function Home() {
     <NewHero />
     <PhotoApp/>
     {/* <About/> */}
-    <Services/>
+    {/* <Services/> */}
     {/* <Form/> */}
     <Testimonials/>
+    <BookNow />
     <UpFooter />
 
     </>
