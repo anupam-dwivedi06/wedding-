@@ -1,0 +1,284 @@
+/* ============================= */
+/* Global Layout */
+/* ============================= */
+.bodys {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* Hero Section */
+/* ============================= */
+.shagun-img-div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.shagun-bottom-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin-top: 30px;
+}
+
+.shagum-img-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.shagum-img-text h1 {
+  color: white;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.shagun-img-btn {
+  padding: 0.75rem 2rem;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shagun-img-btn:hover {
+  background-color: white;
+  color: #1f2937;
+}
+
+/* ============================= */
+/* Gallery Section */
+/* ============================= */
+.gallery-container {
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  justify-content: center;
+}
+
+.gallery-thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-thumbnail:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================= */
+/* Modal Section */
+/* ============================= */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  max-height: 90%;
+  background-color: transparent;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.modal-caption {
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #bbb;
+}
+
+/* ============================= */
+/* Navigation Buttons */
+/* ============================= */
+.nav-button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  transition: background-color 0.6s ease;
+  z-index: 1001;
+}
+
+.nav-button.prev {
+  left: -60px;
+}
+
+.nav-button.next {
+  right: -60px;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ============================= */
+/* Responsive Design */
+/* ============================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .shagum-img-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .shagun-img-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-button.prev {
+    left: 10px;
+    top: 20px;
+    transform: none;
+  }
+
+  .nav-button.next {
+    right: 10px;
+    top: 20px;
+    transform: none;
+  }
+
+  .close-button {
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .shagum-img-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .shagun-img-btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .gallery-container {
+    padding: 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+
+  .nav-button {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .nav-button.prev {
+    left: 5px;
+  }
+
+  .nav-button.next {
+    right: 5px;
+  }
+
+  .close-button {
+    font-size: 26px;
+  }
+
+  .modal-caption {
+    font-size: 0.9rem;
+  }
+}

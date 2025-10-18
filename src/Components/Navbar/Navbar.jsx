@@ -33,6 +33,9 @@ function Navbar() {
                 <NavLink to={'/navabout'} className='navlink' activeClassName='active'>About</NavLink>
               </li>
               <li onClick={() => setIsOpen(false)}>
+                <NavLink to={'/shagun'} className='navlink' activeClassName='active'>Shagun's</NavLink>
+              </li>
+              <li onClick={() => setIsOpen(false)}>
                 <NavLink to={'/faqs'} className='navlink' activeClassName='active'>FAQ</NavLink>
               </li>
               <li onClick={() => setIsOpen(false)}>

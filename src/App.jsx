@@ -13,6 +13,7 @@ import {
 import NewFooter from "./Components/NewFooter/NewFooter";
 import NewContact from "./Components/NewContactForm/NewContact";
 import FAQ from "./Components/FAQ/FAQ";
+import Shagun from "./Components/Shagun/Shagun";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/navabout" element={< NavAbout />} />
           <Route path="/newcontact" element={< NewContact/>} />
           <Route path="faqs" element={< FAQ />} />
+          <Route path="/shagun" element={<Shagun />} />
         </Routes>
         <NewFooter />
       </Router>
