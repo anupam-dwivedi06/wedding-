@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Shagun.css";
+import { useNavigate } from "react-router-dom";
 
 const imagesData = [
   // --- Subham ---
@@ -353,6 +354,7 @@ const imagesData = [
 ];
 
 const Shagun = () => {
+    const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -456,7 +458,7 @@ const Shagun = () => {
         />
         <div className="shagum-img-text">
           <h1>Your Dream Memories Await</h1>
-          <button className="shagun-img-btn">Reach out now</button>
+          <button className="shagun-img-btn" onClick={()=> navigate("/newcontact")}>Reach out now</button>
         </div>
       </div>
     </div>
