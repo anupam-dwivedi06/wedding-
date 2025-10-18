@@ -62,6 +62,8 @@ const UpFooter = () => {
           font-weight: 500;
           cursor: pointer;
           transition: all 0.3s ease;
+          text-decoration: none;
+          display: inline-block;
         }
 
         .cta-button:hover {
@@ -94,7 +96,7 @@ const UpFooter = () => {
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1024px) {
           .hero-section {
-            height: 60vh;
+            height: 40vh;
           }
 
           .hero-text {
@@ -146,7 +148,14 @@ const UpFooter = () => {
             <strong>Neha</strong> crafts looks that are graceful, modern, and made just for you. <br />
             Because the right makeup isn’t just about beauty — it’s about confidence, glow, and feeling unforgettable.
           </p>
-          <button className="cta-button">Step into Aura</button>
+          <a
+            href="https://www.instagram.com/neha_makeupaura?igsh=MWNuMXhnMWJ2bTYyMA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-button"
+          >
+            Step into Aura
+          </a>
         </div>
       </div>
 
