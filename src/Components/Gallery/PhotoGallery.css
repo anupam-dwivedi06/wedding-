@@ -1,22 +1,45 @@
+/* --- GLOBAL BODY/HTML STYLES --- */
 body {
   margin: 0;
-  background-color: #fff6eb;
+  background-color: #fff6eb; /* Light beige background */
   font-family: sans-serif;
 }
 
+/* --- New Slider Wrapper Styles --- */
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+/* --- SLIDER CONTAINER STYLES (FLUSH LEFT) --- */
 .slider {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
   cursor: grab;
+
+  /* === KEY CHANGE: Padding is 0 for flush start === */
   padding: 0;
+
   gap: 10px;
   user-select: none;
   margin-top: 3vw;
-  perspective: 1000px; /* for 3D effect */
+  margin-bottom: 0;
+  perspective: 1000px;
+
+  /* Change snap type to start or remove it entirely if you don't need snapping */
+  scroll-snap-type: x mandatory;
+
+  width: 100%;
+  white-space: nowrap;
 }
 
+/* Hide scrollbar for aesthetics */
 .slider::-webkit-scrollbar {
   display: none;
 }
@@ -29,30 +52,117 @@ body {
   cursor: grabbing;
 }
 
+/* --- CARD STYLES --- */
 .card {
   flex: 0 0 auto;
   transition: transform 0.3s, filter 0.3s;
   transform-origin: center center;
-  filter: brightness(0.8);
+  filter: brightness(0.7);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  /* === KEY CHANGE: Changed snap alignment to start === */
+  scroll-snap-align: start;
+
+  width: 200px;
+  height: 300px;
 }
+
+/* === REMOVED CENTERING MARGIN TRICK (FIRST/LAST CHILD STYLES) === */
+.slider > :first-child {
+  margin-left: unset;
+}
+
+.slider > :last-child {
+  margin-right: unset;
+}
+
+/* ================================================= */
 
 .card img {
   display: block;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
   pointer-events: none;
 }
 
-/* Center card styling */
+/* Center card styling (This styling logic is now purely based on React state) */
 .card.center {
   transform: rotateY(0deg) scale(1.1);
   filter: brightness(1);
+  z-index: 10;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Side cards styling */
 .card:not(.center) {
-  transform: rotateY(15deg) scale(0.85);
+  transform: scale(0.85);
   filter: brightness(0.7);
+  opacity: 0.8;
+}
+
+/* --- NEW EXPLORE BUTTON & LINE STYLES (No changes needed here) --- */
+.explore-line-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  margin-top: 4vw;
+  padding: 0 5%;
+}
+
+.explore-line {
+  width: 100%;
+  height: 1px;
+  background-color: #d1c1b5;
+  position: relative;
+}
+
+.explore-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem 1.5rem;
+  background-color: #fdfaf5;
+  color: #5a3a2b;
+  border: 1px solid #d1c1b5;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.explore-button:hover {
+  background-color: #f6efe9;
+}
+
+/* --- Mobile Responsive Adjustment for Cards --- */
+@media (max-width: 600px) {
+  .slider > :first-child,
+  .slider > :last-child {
+    margin-left: unset;
+    margin-right: unset;
+  }
+
+  .card {
+    width: 180px;
+    height: 270px;
+  }
+
+  .card.center {
+    transform: scale(1.05);
+  }
+
+  .explore-line-container {
+    padding: 0 20px;
+    margin-top: 15vw;
+  }
 }

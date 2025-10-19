@@ -29,20 +29,19 @@ const styles = {
 };
 
 function App() {
-  return (
-    <div style={styles.appContainer}>
-      <p style={styles.textBlock}>
-        Planning your Event is the most exciting and important day of your life
-        and it stands to reason that you would want it captured beautifully.
-        That's where We come in.
-      </p>
-      <h1 style={styles.heading}>
-        Our Latest Shagun's
-      </h1>
-      {/* Assuming CardSlider handles its own internal responsiveness */}
-      <CardSlider />
-    </div>
-  );
+    return (
+        <div style={styles.appContainer}>
+            <p style={styles.textBlock}>
+                Planning your Event is the most exciting and important day of your life
+                and it stands to reason that you would want it captured beautifully.
+                That's where We come in.
+            </p>
+            <h1 style={styles.heading}>
+                Our Latest Shagun's
+            </h1>
+            <CardSlider />
+        </div>
+    );
 }
 
 export default App;
