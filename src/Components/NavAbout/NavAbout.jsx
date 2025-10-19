@@ -29,7 +29,7 @@ function NavAbout() {
                 {/* 2. Text Content Column */}
                 <div className="content-column">
                     <h2>About us</h2>
-                    {/* <p className="founder-note-head">Founder's Note - By **Hiralal Rathor**</p> */}
+                    <p className="founder-note-head">Founder's Note </p>
 
                     <p>
                         When I founded Utsav Studio & Graphics in 2001, I had just one dream to preserve
