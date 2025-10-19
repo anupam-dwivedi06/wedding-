@@ -354,7 +354,7 @@ const imagesData = [
 ];
 
 const Shagun = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -397,7 +397,12 @@ const Shagun = () => {
   return (
     <div className="bodys">
       <div className="gallery-container">
-        <h1>My Awesome Photo Gallery</h1>
+        <p>
+          Weddings are filled with emotions, traditions, and countless little
+          moments. At Shagun Utsav, we see every click not just as a photograph
+          - Every Frame is a Blessing.
+        </p>
+        <h1>Welcome to Shagun's Gallery</h1>
         <div className="gallery-grid">
           {imagesData.map((image, index) => (
             <img
@@ -458,7 +463,12 @@ const Shagun = () => {
         />
         <div className="shagum-img-text">
           <h1>Your Dream Memories Await</h1>
-          <button className="shagun-img-btn" onClick={()=> navigate("/newcontact")}>Reach out now</button>
+          <button
+            className="shagun-img-btn"
+            onClick={() => navigate("/newcontact")}
+          >
+            Reach out now
+          </button>
         </div>
       </div>
     </div>

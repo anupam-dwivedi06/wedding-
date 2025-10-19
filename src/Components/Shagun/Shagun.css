@@ -77,9 +77,13 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   margin-top: 40px;
+}
+
+.gallery-container p{
+  padding: 2vw 12vw;
 }
 
 h1 {
@@ -210,6 +214,10 @@ h1 {
     font-size: 1.8rem;
   }
 
+  .gallery-container p{
+    padding: 0vw 0vw;
+  }
+
   .shagun-img-btn {
     padding: 0.6rem 1.5rem;
     font-size: 0.8rem;
@@ -243,6 +251,10 @@ h1 {
 @media (max-width: 480px) {
   .shagum-img-text h1 {
     font-size: 1.4rem;
+  }
+
+    .gallery-container p{
+    padding: 0vw 0vw;
   }
 
   .shagun-img-btn {

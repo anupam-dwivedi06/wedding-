@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const testimonials = [
   {
     name: 'Khusi Agrawal',
-    role: 'Customer',
+    // role: 'Customer', // ROLE REMOVED
     // imgSrc: 'Ellipse 1.png',
     alt: 'Photo',
     message: `
@@ -15,7 +15,7 @@ Mujhe Utsav Studio ek dost ne recommend kiya tha. Honestly, meri taraf se zyada 
   },
   {
     name: 'Khusi Bafra',
-    role: 'Customer',
+    // role: 'Customer', // ROLE REMOVED
     // imgSrc: 'Ellipse 4 (1).png',
     alt: 'Photo',
     message: `
@@ -24,13 +24,19 @@ Best Friend ki recommendation aur Instagram reels dekh kar maine Utsav Studio ch
   },
   {
     name: 'Subham Rathod',
-    role: 'Customer',
+    // role: 'Customer', // ROLE REMOVED
     // imgSrc: 'Ellipse 6.png',
     alt: 'Photo',
     message: `Utsav mera dost hai, isliye naturally maine apni sister ki wedding ke liye uski team ko choose kiya. Lekin dosti se upar unhone full professionalism dikhaya. Har function ka shoot perfect raha, aur final photos aur videos dekh kar family sabhi khush ho gaye. Truly proud of his work!`,
     route: '/photgallery3',
   },
 ];
+
+const FiveStarRating = () => (
+    <div className="star-rating">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+);
 
 const Testimonials = () => {
   const navigate = useNavigate();
@@ -53,11 +59,6 @@ const Testimonials = () => {
           </h2>
         </div>
         {/* =========================================== */}
-{/*         
-        <div className="text-heading-container">
-          <h3 className="section-subtitle">Testimonials</h3>
-          <h1 className="section-title">What Our Customers Say</h1>
-        </div> */}
 
         <div className="customer-container">
           {testimonials.map((testimonial, index) => (
@@ -65,19 +66,21 @@ const Testimonials = () => {
               <p className="say">{testimonial.message}</p>
               
               <div className="card-footer">
-                  <div className="customer-photo">
-                    {/* Placeholder for photo/initials */}
+                <div className="customer-photo">
                     <div className="initials-placeholder">
                         {testimonial.name.charAt(0)}
                     </div>
                     <div className="customer-info">
                       <h4 className="customer-name">{testimonial.name}</h4>
-                      <p className="customer-role">{testimonial.role}</p>
+                      
+                      {/* --- RATING ADDED HERE --- */}
+                      <FiveStarRating />
+                      
                     </div>
-                  </div>
-                  <button className="gallery-button" onClick={() => navigate(testimonial.route)}>
-                    View Gallery 📸
-                  </button>
+                </div>
+                <button className="gallery-button" onClick={() => navigate(testimonial.route)}>
+                  View Gallery 📸
+                </button>
               </div>
 
             </div>

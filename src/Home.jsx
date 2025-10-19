@@ -14,7 +14,7 @@ function Home() {
     <>
     {/* <Hero/> */}
     <NewHero />
-    {/* <PhotoApp/> */}
+    <PhotoApp/>
     {/* <About/> */}
     {/* <Services/> */}
     {/* <Form/> */}
