@@ -197,7 +197,7 @@ const FAQItem = ({ question, answer, list }) => (
 
 const FooterHero = () => {
     const navigate = useNavigate();
-    const imageUrl = "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760615823/AboutFooterPhoto_mznakc.jpg";
+    const imageUrl = "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760903583/faqnewphotfooter_loq42m.jpg";
 
     return (
         <div className="footer-hero">
