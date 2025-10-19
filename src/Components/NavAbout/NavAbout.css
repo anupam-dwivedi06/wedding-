@@ -31,7 +31,7 @@ body {
 
 /* 1. IMAGE COLLAGE COLUMN */
 .collage-column {
-    flex: 0 0 45%; /* Takes 45% of the container width */
+    flex: 0 0 35%; /* Takes 45% of the container width */
     display: flex;
     justify-content: center;
     align-items: flex-start;
