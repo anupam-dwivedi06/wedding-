@@ -11,7 +11,7 @@ const BookNow = () => {
       <style>{`
         /* Global Reset and Aesthetics */
         .app-container {
-          min-height: 100vh;
+          min-height: 80vh;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -48,12 +48,12 @@ const BookNow = () => {
           align-items: center;
           width: 100%;
           margin-top: 1rem; /* mt-4 */
-          margin-bottom: 10rem; /* mb-40, adjusted for better spacing without Tailwind classes */
+          margin-bottom: 5rem; /* mb-40, adjusted for better spacing without Tailwind classes */
         }
 
         @media (min-width: 640px) { /* sm breakpoint */
           .button-container {
-            margin-bottom: 16rem; /* sm:mb-64 */
+            margin-bottom: 5rem; /* sm:mb-64 */
           }
         }
 
