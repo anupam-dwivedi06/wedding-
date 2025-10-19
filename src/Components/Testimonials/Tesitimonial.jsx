@@ -4,27 +4,30 @@ import { useNavigate } from 'react-router-dom';
 
 const testimonials = [
   {
-    name: 'Saumya Kuslani',
+    name: 'Khusi Agrawal',
     role: 'Customer',
     // imgSrc: 'Ellipse 1.png',
     alt: 'Photo',
-    message: `Anupam listened to my ideas and provided valuable input, which helped to create a user interface that was both aesthetically pleasing and easy to use. He is a very dedicated person and I like his confidence in web development.`,
+    message: `
+Mujhe Utsav Studio ek dost ne recommend kiya tha. Honestly, meri taraf se zyada demands ya specific requirements nahi thi. Lekin unki team ne jitni dedication aur creativity ke saath kaam kiya. Har photo aur video beautifully capture hua, aur pura experience stress-free raha. Definitely a great decision to go with them.
+`,
     route: '/photogallery',
   },
   {
-    name: 'Yaksh Raj Banote',
+    name: 'Khusi Bafra',
     role: 'Customer',
     // imgSrc: 'Ellipse 4 (1).png',
     alt: 'Photo',
-    message: `I recently worked with Anupam on a project and was extremely impressed with his creativity and attention to detail. He listened to my ideas and provided valuable input, which helped to create a UI that was both aesthetically pleasing.`,
+    message: `
+Best Friend ki recommendation aur Instagram reels dekh kar maine Utsav Studio choose kiya. Team ka behaviour bahut professional aur friendly tha. Delivery thodi delay hui, lekin final results dekhkar laga wait worth tha. Hum itne satisfied hain ki maine family me bhi recommend kiya`,
     route: '/photgallery2',
   },
   {
-    name: 'Uday Jha',
+    name: 'Subham Rathod',
     role: 'Customer',
     // imgSrc: 'Ellipse 6.png',
     alt: 'Photo',
-    message: `His design skills are top-notch and he effectively communicated with our team throughout the project. I highly recommend him to anyone in need of a talented UI designer. He created an outstanding website design for our company.`,
+    message: `Utsav mera dost hai, isliye naturally maine apni sister ki wedding ke liye uski team ko choose kiya. Lekin dosti se upar unhone full professionalism dikhaya. Har function ka shoot perfect raha, aur final photos aur videos dekh kar family sabhi khush ho gaye. Truly proud of his work!`,
     route: '/photgallery3',
   },
 ];
