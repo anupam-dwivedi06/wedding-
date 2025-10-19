@@ -127,6 +127,7 @@ const StyleBlock = () => (
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* justify-end */
+            text-align: center;
             align-items: center; /* items-center */
             padding: 2.5rem; /* p-10 */
             gap: 1rem; /* space-y-4 */
