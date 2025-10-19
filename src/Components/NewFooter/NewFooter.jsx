@@ -141,15 +141,30 @@ const SocialIcons = ({ isMobile }) => (
   >
     {/* Placeholder icons (you'd use actual icon components here) */}
     {/* <span style={styles.socialIcon}></span> */}
-    <a href="https://www.instagram.com/shagunutsav/" target="_blank" rel="noopener noreferrer">
-      <img src="/SVG/insta.svg" alt="Company Logo" style={styles.socialIcon}  />
-    </a>
-    <a href="https://www.youtube.com/@Shagunutsav" target="_blank" rel="noopener noreferrer">
-      <img src="/SVG/yt.svg" alt="Company Logo" style={styles.socialIcon}  />
-    </a>
-    <a href="https://www.facebook.com/Utsav.kukshi26" target="_blank" rel="noopener noreferrer">
-      <img src="/SVG/facebook.svg" alt="Company Logo" style={styles.socialIcon}  />
-    </a>
+   <a
+  href="https://www.instagram.com/shagunutsav/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img src="/SVG/instaa.svg" alt="Instagram" style={styles.socialIcon} />
+</a>
+
+<a
+  href="https://www.youtube.com/@Shagunutsav"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img src="/SVG/yt.svg" alt="YouTube" style={styles.socialIcon} />
+</a>
+
+<a
+  href="https://www.facebook.com/Utsav.kukshi26"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img src="/SVG/facebook.svg" alt="Facebook" style={styles.socialIcon} />
+</a>
+
     
   </div>
 );
