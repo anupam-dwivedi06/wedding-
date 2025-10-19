@@ -197,8 +197,8 @@ const ContactInfo = ({ isMobile }) => (
 
     {/* Branding section mirroring the custom font style from the image */}
     <div style={styles.branding}>
-      <p style={styles.logoText}>उत्सव</p>
-      <p style={styles.logoTextLarge}>Shagun utsav</p>
+      <p style={styles.logoText}>शगुन</p>
+      <p style={styles.logoTextLarge}> utsav</p>
 
       {/* 2. SOCIAL ICONS (Shown at BOTTOM on desktop) */}
       {!isMobile && <SocialIcons isMobile={isMobile} />}
