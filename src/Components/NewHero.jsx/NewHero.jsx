@@ -84,8 +84,8 @@ const VideoHero = () => {
 
             {/* 2. Central Hero Message (Z-index 5) */}
             <div className="hero-content">
-                <h1>Cinematic Wedding Stories</h1>
-                <p>Capturing the genuine emotions and timeless traditions of your special day, framed forever.</p>
+                {/* <h1>Cinematic Wedding Stories</h1>
+                <p>Capturing the genuine emotions and timeless traditions of your special day, framed forever.</p> */}
                 {/* Request a Quote button has been removed */}
             </div>
         </div>
