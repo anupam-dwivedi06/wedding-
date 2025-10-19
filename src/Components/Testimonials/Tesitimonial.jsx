@@ -78,7 +78,7 @@ const Testimonials = () => {
                       
                     </div>
                 </div>
-                <button className="gallery-button" onClick={() => navigate(testimonial.route)}>
+                <button className="gallery-button" onClick={() => navigate("/shagun")}>
                   View Gallery 📸
                 </button>
               </div>

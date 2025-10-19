@@ -61,9 +61,9 @@ const VideoHero = () => {
                 /* --- NEW LOGO STYLING --- */
                 .bottom-left-logo {
                     position: absolute;
-                    bottom: 30px; /* Space from the bottom edge */
+                    bottom: -30px; /* Space from the bottom edge */
                     left: 30px; /* Space from the left edge */
-                    width: 120px; /* Adjust size as needed for desktop */
+                    width: 160px; /* Adjust size as needed for desktop */
                     height: auto;
                     z-index: 10; /* Ensure it is above the video and content */
                     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); /* Shadow for contrast */
@@ -80,9 +80,9 @@ const VideoHero = () => {
                     }
                     /* Mobile Logo adjustment */
                     .bottom-left-logo {
-                        bottom: 20px;
+                        bottom: -22px;
                         left: 20px;
-                        width: 80px; /* Smaller size on mobile */
+                        width: 120px; /* Smaller size on mobile */
                     }
                 }
             `}} />
