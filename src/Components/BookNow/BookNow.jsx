@@ -11,7 +11,7 @@ const BookNow = () => {
       <style>{`
         /* Global Reset and Aesthetics */
         .app-container {
-          min-height: 100vh;
+          min-height: 30vh;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -113,22 +113,22 @@ const BookNow = () => {
       <div className="app-container" style={{ backgroundColor: CUSTOM_BG_COLOR }}>
         <div className="content-wrapper">
         
-          <div className="hook-text">
+          {/* <div className="hook-text">
             <p>
               Your Story Could be the next one here. Let's Create memories together.
             </p>
-          </div>
+          </div> */}
 
-          {/* Button Container */}
+{/*           
           <div className="button-container">
-            {/* Button */}
+           
             <button
               className="book-now-button"
              onClick={()=> navigate("/newcontact")}
             >
               Book now
             </button>
-          </div>
+          </div> */}
 
           {/* ==================================
             BOTTOM SECTION: Brand Messaging
