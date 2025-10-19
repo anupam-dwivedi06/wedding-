@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import insta from "../../../public/SVG/insta";
 
-// The Google Maps embed URL provided by the user
 const MAP_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.8445359930465!2d74.76199179999999!3d22.208013700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3961ed9410de8dcd%3A0xea7be4ead427b739!2sUtsav%20Studio%20%26%20Graphics!5e0!3m2!1sen!2sin!4v1748750782018!5m2!1sen!2sin";
 
@@ -144,13 +142,13 @@ const SocialIcons = ({ isMobile }) => (
     {/* Placeholder icons (you'd use actual icon components here) */}
     {/* <span style={styles.socialIcon}></span> */}
     <a href="https://www.instagram.com/shagunutsav/" target="_blank" rel="noopener noreferrer">
-      <img src="/public/SVG/insta.svg" alt="Company Logo" style={styles.socialIcon}  />
+      <img src="/SVG/insta.svg" alt="Company Logo" style={styles.socialIcon}  />
     </a>
     <a href="https://www.youtube.com/@Shagunutsav" target="_blank" rel="noopener noreferrer">
-      <img src="/public/SVG/yt.svg" alt="Company Logo" style={styles.socialIcon}  />
+      <img src="/SVG/yt.svg" alt="Company Logo" style={styles.socialIcon}  />
     </a>
     <a href="https://www.facebook.com/Utsav.kukshi26" target="_blank" rel="noopener noreferrer">
-      <img src="/public/SVG/facebook.svg" alt="Company Logo" style={styles.socialIcon}  />
+      <img src="/SVG/facebook.svg" alt="Company Logo" style={styles.socialIcon}  />
     </a>
     
   </div>
