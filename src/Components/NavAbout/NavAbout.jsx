@@ -64,7 +64,7 @@ function NavAbout() {
             {/* NEW: Footer Hero Image Section */}
             <div className="footer-hero">
                 <img 
-                    src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760857184/AboutFooterImg_eiondb.jpg" 
+                    src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760902908/aboutnewfooterimg_nw0ojq.jpg" 
                     alt="Couple performing wedding rituals"
                     className="footer-hero-image"
                 />
