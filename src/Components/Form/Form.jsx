@@ -21,12 +21,17 @@ const styles = {
         maxWidth: '800px',
     },
     h1: {
-        // Style matching the bold, large text in the reference image
-        fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+        // FIX FOR MOBILE OVERFLOW: Removed whiteSpace: 'nowrap' and focused on fluid sizing.
+        fontSize: 'clamp(1.8rem, 3vw, 3.5rem)', // Adjusted clamp min size and viewport units (8vw) for better fluid scaling
         fontWeight: 700,
         color: '#444',
         marginBottom: '1rem',
-        lineHeight: '1.1',
+        lineHeight: '1.2', // Increased line height slightly to accommodate wrapping
+        // REMOVED: whiteSpace: 'nowrap',
+        // REMOVED: overflow: 'hidden',
+        // REMOVED: textOverflow: 'ellipsis',
+        padding: '0 10px', // Add some internal padding to prevent text touching the edge on very small screens
+        boxSizing: 'border-box',
     },
     pDescription: {
         fontSize: '1.1rem',
@@ -53,10 +58,10 @@ const styles = {
     // --- CARD STYLES (Single Form Card) ---
     card: {
         backgroundColor: '#fff',
-        borderRadius: '16px', // Slightly larger radius for elegance
-        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)', // Increased shadow
+        borderRadius: '16px', 
+        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)', 
         padding: '50px',
-        maxWidth: '650px', // Increased width for the single card
+        maxWidth: '650px', 
         width: '100%',
         boxSizing: 'border-box',
         border: '1px solid #eee', 
@@ -78,13 +83,30 @@ const styles = {
         width: '100%',
         padding: '12px 15px',
         border: '1px solid #ddd',
-        borderRadius: '8px', // Slightly more rounded inputs
+        borderRadius: '8px', 
         fontSize: '16px',
         boxSizing: 'border-box',
         transition: 'border-color 0.3s, box-shadow 0.3s',
     },
+    // Adding style for select element (same as input)
+    select: {
+        width: '100%',
+        padding: '12px 15px',
+        border: '1px solid #ddd',
+        borderRadius: '8px', 
+        fontSize: '16px',
+        boxSizing: 'border-box',
+        transition: 'border-color 0.3s, box-shadow 0.3s',
+        backgroundColor: 'white', 
+        appearance: 'none', 
+        backgroundImage: 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%20176.6c-4.4%204.4-10.4%206.5-16.4%206.5s-12.1-2.2-16.4-6.5L146.2%2073.7%2038.3%20176.6c-4.4%204.4-10.4%206.5-16.4%206.5s-12.1-2.2-16.4-6.5c-9-9-9-24%200-33l128.5-128.5c4.4-4.4%2010.4-6.5%2016.4-6.5s12.1%202.2%2016.4%206.5l128.5%20128.5c9%209%209%2024.1%200%2033z%22%2F%3E%3C%2Fsvg%3E")', 
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'right 15px center',
+        backgroundSize: '10px',
+        paddingRight: '35px', 
+    },
     inputFocus: {
-        borderColor: '#9d7c71', // Muted focus color
+        borderColor: '#9d7c71', 
         outline: 'none',
         boxShadow: '0 0 0 3px rgba(157, 124, 113, 0.3)',
     },
@@ -98,7 +120,7 @@ const styles = {
     submitButton: {
         width: '100%',
         padding: '15px',
-        backgroundColor: '#c9ad9f', // Soft, appealing beige/pink
+        backgroundColor: '#c9ad9f', 
         color: 'white',
         border: 'none',
         borderRadius: '8px',
@@ -109,7 +131,7 @@ const styles = {
         boxShadow: '0 4px 10px rgba(201, 173, 159, 0.4)',
     },
     submitButtonHover: {
-        backgroundColor: '#b89e93', // Slightly darker on hover
+        backgroundColor: '#b89e93', 
         transform: 'translateY(-1px)',
     },
     
@@ -141,6 +163,7 @@ const ContactSection = () => {
         location: '',
         date: '',
         event: '',
+        referralSource: '', 
     });
 
     const [errors, setErrors] = useState({});
@@ -172,9 +195,14 @@ const ContactSection = () => {
             newErrors.email = 'Email address is invalid.';
             isValid = false;
         }
-
+        
         if (!formData.event.trim()) {
             newErrors.event = 'The event name is required.';
+            isValid = false;
+        }
+
+        if (!formData.referralSource) {
+            newErrors.referralSource = 'Please let us know how you found us.';
             isValid = false;
         }
 
@@ -187,7 +215,6 @@ const ContactSection = () => {
         setSubmitMessage('');
 
         if (validate()) {
-            // In a real app, you would send data to Firestore or an API here.
             console.log('Form Data Submitted:', formData); 
             setSubmitMessage('Inquiry sent successfully! We will contact you soon.');
             setFormData({
@@ -197,36 +224,51 @@ const ContactSection = () => {
                 location: '',
                 date: '',
                 event: '',
+                referralSource: '',
             });
         } else {
             setSubmitMessage('Please check the required fields and correct the errors.');
         }
     };
 
-    // Helper function to dynamically calculate input styles
-    const getInputStyle = (fieldName) => ({
-        ...styles.input,
+    const getInputStyle = (fieldName, isSelect = false) => ({
+        ...(isSelect ? styles.select : styles.input),
         ...(focusedField === fieldName ? styles.inputFocus : {}),
-        ...(errors[fieldName] ? { borderColor: styles.errorMessage.color, boxShadow: '0 0 0 3px rgba(220, 53, 69, 0.3)' } : {}),
+        ...(errors[fieldName] ? { 
+            borderColor: styles.errorMessage.color, 
+            boxShadow: '0 0 0 3px rgba(220, 53, 69, 0.3)' 
+        } : {}),
     });
+
+    const referralOptions = [
+        { value: '', label: 'Select an option' },
+        { value: 'social_media', label: 'Instagram, Facebook, or other Social Media' },
+        { value: 'family_friend', label: 'Family/Friend Referral' },
+        { value: 'google_search', label: 'Google Search' },
+        { value: 'wedding_vendor', label: 'Other Wedding Vendor/Planner' },
+        { value: 'other', label: 'Other' },
+    ];
+
 
     return (
         <div style={styles.globalContainer}>
-            {/* 1. Header with custom text, matching the elegant style */}
+            {/* 1. Header with custom text, now correctly wrapping on mobile */}
             <div style={styles.formBigHeading}>
-                <h1 style={styles.h1}>“Let’s Get to know Each Other”</h1>
+                {/* Title will now wrap if needed, resolving overflow */}
+                <h1 style={styles.h1}>“Let’s Get to know Each Other”</h1> 
                 <p style={styles.pDescription}>
                     Every event is unique, and so is every couple. The more we know you, the better we can capture your story.
                     Fill out the form below, and let's begin this journey together.
                 </p>
             </div>
 
-            {/* 2. Form Card (Now centered and full width of its container) */}
+            {/* 2. Form Card */}
             <div style={styles.contactContainer}>
                 <div style={styles.card}>
                     <h2 style={{...styles.h2, padding: '0 0 20px 0'}}>Book Your Utsav</h2>
                     
                     <form onSubmit={handleSubmit} noValidate>
+                        {/* MAPPED FIELDS (excluding the new dropdown) */}
                         {['name', 'email', 'phoneWhatsApp', 'location', 'date', 'event'].map((field) => {
                             const label = 
                                 field === 'phoneWhatsApp' ? 'Phone/WhatsApp' :
@@ -261,6 +303,27 @@ const ContactSection = () => {
                                 </div>
                             );
                         })}
+
+                        {/* NEW DROP DOWN FIELD: How Did You Hear About Us? */}
+                        <div style={styles.formGroup}>
+                            <label style={styles.label} htmlFor="referralSource">How did you hear about us? *</label>
+                            <select
+                                id="referralSource"
+                                name="referralSource"
+                                value={formData.referralSource}
+                                onChange={handleChange}
+                                onFocus={() => setFocusedField('referralSource')}
+                                onBlur={() => setFocusedField(null)}
+                                style={getInputStyle('referralSource', true)}
+                            >
+                                {referralOptions.map(option => (
+                                    <option key={option.value} value={option.value} disabled={option.value === ''}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                            {errors.referralSource && <p style={styles.errorMessage}>{errors.referralSource}</p>}
+                        </div>
 
                         <button 
                             type="submit" 

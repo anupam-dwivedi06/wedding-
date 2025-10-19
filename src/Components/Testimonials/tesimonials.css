@@ -28,10 +28,10 @@
 .company-motto {
     text-align: center;
     padding: 2rem 4rem; 
-    background-color: #f6efe9; /* Slightly darker shade of the main background for subtle contrast */
+    /* background-color: #f6efe9; */
     border-radius: 8px;
     margin-bottom: 3rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Lighter shadow */
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);  */
 }
 
 .since-text {
