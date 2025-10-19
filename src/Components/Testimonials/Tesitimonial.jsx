@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const testimonials = [
   {
-    name: 'Khusi Agrawal',
+    name: 'Kesaw & Kirti',
     // role: 'Customer', // ROLE REMOVED
     // imgSrc: 'Ellipse 1.png',
     alt: 'Photo',
@@ -14,7 +14,7 @@ Mujhe Utsav Studio ek dost ne recommend kiya tha. Honestly, meri taraf se zyada 
     route: '/photogallery',
   },
   {
-    name: 'Khusi Bafra',
+    name: 'Vanshika & Kush',
     // role: 'Customer', // ROLE REMOVED
     // imgSrc: 'Ellipse 4 (1).png',
     alt: 'Photo',
@@ -23,7 +23,7 @@ Best Friend ki recommendation aur Instagram reels dekh kar maine Utsav Studio ch
     route: '/photgallery2',
   },
   {
-    name: 'Subham Rathod',
+    name: 'Divyansh Thakur',
     // role: 'Customer', // ROLE REMOVED
     // imgSrc: 'Ellipse 6.png',
     alt: 'Photo',
