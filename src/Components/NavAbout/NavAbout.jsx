@@ -1,7 +1,9 @@
 import React from 'react';
 import './NavAbout.css';
+import { useNavigate } from 'react-router-dom';
 
 function NavAbout() {
+    const navigate = useNavigate();
     return (
         <div className="founder-note-section">
             <div className="founder-note-container">
@@ -68,7 +70,7 @@ function NavAbout() {
                 />
                 <div className="hero-content-overlay">
                     <p>EVERY MOMMENTS MATTERS.</p>
-                    <button className="contact-button">Let's Create Yours.</button>
+                    <button className="contact-button" onClick={()=> navigate("/newcontact")}>Let's Create Yours.</button>
                 </div>
             </div>
             {/* END: Footer Hero Image Section */}
