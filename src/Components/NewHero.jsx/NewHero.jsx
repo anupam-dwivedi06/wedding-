@@ -16,7 +16,7 @@ const VideoHero = () => {
                     height: 100vh; /* Full viewport height */
                     overflow: hidden;
                     background-color: #000;
-                    display: flex; /* Centers content */
+                    display: flex; 
                     justify-content: center;
                     align-items: center;
                 }
@@ -35,7 +35,7 @@ const VideoHero = () => {
 
                 /* Hero Text/Content Area */
                 .hero-content {
-                    position: relative; /* Relative to flow, but Z-indexed above video */
+                    position: relative;
                     z-index: 5; 
                     text-align: center;
                     color: #fff;
@@ -53,12 +53,22 @@ const VideoHero = () => {
                 .hero-content p {
                     font-size: 1.4rem;
                     max-width: 700px;
-                    /* Reduced margin-bottom since the button is gone */
                     margin: 0 auto 0 auto; 
                     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
                     font-weight: 300;
                 }
-                
+
+                /* --- NEW LOGO STYLING --- */
+                .bottom-left-logo {
+                    position: absolute;
+                    bottom: 30px; /* Space from the bottom edge */
+                    left: 30px; /* Space from the left edge */
+                    width: 120px; /* Adjust size as needed for desktop */
+                    height: auto;
+                    z-index: 10; /* Ensure it is above the video and content */
+                    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); /* Shadow for contrast */
+                }
+
                 /* Media Query for Mobile View */
                 @media (max-width: 768px) {
                     .hero-content h1 {
@@ -67,6 +77,12 @@ const VideoHero = () => {
                     .hero-content p {
                         font-size: 1.1rem;
                         margin-bottom: 0;
+                    }
+                    /* Mobile Logo adjustment */
+                    .bottom-left-logo {
+                        bottom: 20px;
+                        left: 20px;
+                        width: 80px; /* Smaller size on mobile */
                     }
                 }
             `}} />
@@ -83,11 +99,17 @@ const VideoHero = () => {
             />
 
             {/* 2. Central Hero Message (Z-index 5) */}
-            <div className="hero-content">
-                {/* <h1>Cinematic Wedding Stories</h1>
-                <p>Capturing the genuine emotions and timeless traditions of your special day, framed forever.</p> */}
-                {/* Request a Quote button has been removed */}
-            </div>
+            {/* <div className="hero-content">
+                <h1>Cinematic Wedding Stories</h1>
+                <p>Capturing the genuine emotions and timeless traditions of your special day, framed forever.</p>
+            </div> */}
+            
+            {/* 3. NEW LOGO ELEMENT (Z-index 10) */}
+            <img 
+                src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760861674/web_logo_hrzdzy.png" 
+                alt="Company Logo"
+                className="bottom-left-logo"
+            />
         </div>
     );
 }
