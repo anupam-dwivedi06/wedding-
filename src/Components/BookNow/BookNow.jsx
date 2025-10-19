@@ -48,7 +48,7 @@ const BookNow = () => {
           align-items: center;
           width: 100%;
           margin-top: 1rem; /* mt-4 */
-          margin-bottom: 10rem; /* mb-40, adjusted for better spacing without Tailwind classes */
+          margin-bottom: 16rem; /* mb-40, adjusted for better spacing without Tailwind classes */
         }
 
         @media (min-width: 640px) { /* sm breakpoint */
