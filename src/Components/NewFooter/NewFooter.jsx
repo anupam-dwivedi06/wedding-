@@ -181,7 +181,7 @@ const ContactInfo = ({ isMobile }) => (
 
     <h2 style={styles.heading}>Get in touch with us</h2>
 
-    <p style={styles.text}>Utsav.kukshi26@gmail.com</p>
+    <p style={styles.text}>Shagunutsav@outlook.com</p>
     <p style={styles.text}>+91 93993 05028</p>
 
     <div
