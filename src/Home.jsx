@@ -7,6 +7,7 @@ import Testimonials from './Components/Testimonials/Tesitimonial'
 import NewHero from './Components/NewHero.jsx/NewHero'
 import UpFooter from './Components/UpFooter/UpFooter'
 import BookNow from './Components/BookNow/BookNow'
+import BgBook from './Components/BgBook/BgBook'
 
 function Home() {
 
@@ -19,6 +20,7 @@ function Home() {
     {/* <Services/> */}
     {/* <Form/> */}
     <Testimonials/>
+    <BgBook/>
     <BookNow />
     <UpFooter />
 
