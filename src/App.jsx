@@ -14,12 +14,14 @@ import NewFooter from "./Components/NewFooter/NewFooter";
 import NewContact from "./Components/NewContactForm/NewContact";
 import FAQ from "./Components/FAQ/FAQ";
 import Shagun from "./Components/Shagun/Shagun";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <>
       <Router>
         <Navbar />
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element = {<Home/>}/>
           <Route path="/photogallery" element = {<Photoalbum/>}/>
