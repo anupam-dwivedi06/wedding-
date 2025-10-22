@@ -15,6 +15,7 @@ import NewContact from "./Components/NewContactForm/NewContact";
 import FAQ from "./Components/FAQ/FAQ";
 import Shagun from "./Components/Shagun/Shagun";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import Poster from "./Components/Poster/Poster";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Navbar />
         <ScrollToTop/>
         <Routes>
+          {/* <Route path="/" element={<Poster />} /> */}
           <Route path="/" element = {<Home/>}/>
           <Route path="/photogallery" element = {<Photoalbum/>}/>
           <Route path="/photgallery2" element={<Photoalbum2 />} />

@@ -8,6 +8,7 @@ import NewHero from './Components/NewHero.jsx/NewHero'
 import UpFooter from './Components/UpFooter/UpFooter'
 import BookNow from './Components/BookNow/BookNow'
 import BgBook from './Components/BgBook/BgBook'
+import Poster from './Components/Poster/Poster'
 
 function Home() {
 
@@ -23,7 +24,7 @@ function Home() {
     <BgBook/>
     <BookNow />
     <UpFooter />
-
+    {/* <Poster /> */}
     </>
   )
 }
