@@ -16,10 +16,12 @@ import FAQ from "./Components/FAQ/FAQ";
 import Shagun from "./Components/Shagun/Shagun";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import Poster from "./Components/Poster/Poster";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
     <>
+    <Analytics/>
       <Router>
         <Navbar />
         <ScrollToTop/>
