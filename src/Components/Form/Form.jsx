@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios"; 
+
 
 // Inline styles replacing the external Form.css
 const styles = {
@@ -210,12 +212,17 @@ const ContactSection = () => {
         return isValid;
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitMessage('');
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitMessage('');
 
-        if (validate()) {
-            console.log('Form Data Submitted:', formData); 
+    if (validate()) {
+        try {
+            const response = await axios.post(
+                "https://api.sheetbest.com/sheets/7de505dd-6c89-4658-ab05-a9b78206d075",
+                formData
+            );
+            console.log("SheetBest Response:", response.data);
             setSubmitMessage('Inquiry sent successfully! We will contact you soon.');
             setFormData({
                 name: '',
@@ -226,10 +233,15 @@ const ContactSection = () => {
                 event: '',
                 referralSource: '',
             });
-        } else {
-            setSubmitMessage('Please check the required fields and correct the errors.');
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setSubmitMessage('Something went wrong. Please try again later.');
         }
-    };
+    } else {
+        setSubmitMessage('Please check the required fields and correct the errors.');
+    }
+};
+
 
     const getInputStyle = (fieldName, isSelect = false) => ({
         ...(isSelect ? styles.select : styles.input),
