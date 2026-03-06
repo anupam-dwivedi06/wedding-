@@ -2,7 +2,7 @@ import React from "react";
 
 const UpFooter = () => {
   const backgroundImageUrl =
-    "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760796385/HomeUpFooterImg_fueyrg.jpg";
+    "https://res.cloudinary.com/dsgdfqnbj/image/upload/q_auto,f_auto/v1760796385/HomeUpFooterImg_fueyrg.jpg";
 
   return (
     <>

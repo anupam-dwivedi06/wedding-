@@ -67,7 +67,7 @@ function About() {
             </div>
           </div>
           <div className="para-in-img">
-            <img src="IMG_1131.PNG" alt="A wedding couple" />
+            <img src="IMG_1131.PNG" alt="A wedding couple" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

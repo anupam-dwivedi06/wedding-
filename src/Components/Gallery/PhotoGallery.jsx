@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PhotoGallery.css';
+import { optimizeCloudinary } from '../../utils/cloudinary';
 
 // ... (Image URLs remain the same)
 
@@ -129,7 +130,7 @@ const CardSlider = () => {
             >
                 {images.map((src, idx) => (
                     <div className={`card ${centerIndex === idx ? 'center' : ''}`} key={idx}>
-                        <img src={src} alt={`Card ${idx + 1}`} />
+                        <img src={optimizeCloudinary(src, { width: 600, q: 'auto', f: 'auto' })} alt={`Card ${idx + 1}`} loading="lazy" decoding="async" />
                     </div>
                 ))}
             </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
-// Tailwind CSS has been removed. Styles are now included in the component below.
+import { useNavigate } from "react-router-dom";import { optimizeCloudinary } from "../../utils/cloudinary";// Tailwind CSS has been removed. Styles are now included in the component below.
 
 const faqData = [
     {
@@ -198,7 +197,7 @@ const FAQItem = ({ question, answer, list }) => (
 
 const FooterHero = () => {
     const navigate = useNavigate();
-    const imageUrl = "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760903583/faqnewphotfooter_loq42m.jpg";
+    const imageUrl = optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760903583/faqnewphotfooter_loq42m.jpg", { width: 1200, q: "auto", f: "auto" });
 
     return (
         <div className="footer-hero">
@@ -206,6 +205,8 @@ const FooterHero = () => {
                 src={imageUrl} 
                 alt="Couple performing wedding rituals"
                 className="hero-image"
+                loading="lazy"
+                decoding="async"
             />
             <div className="hero-overlay">
                 <p className="hero-text text-shadow-lg">

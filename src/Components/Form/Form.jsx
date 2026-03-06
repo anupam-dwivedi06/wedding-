@@ -218,11 +218,12 @@ const handleSubmit = async (e) => {
 
     if (validate()) {
         try {
+            // send request to our own backend instead of sheetbest
             const response = await axios.post(
-                "https://api.sheetbest.com/sheets/7de505dd-6c89-4658-ab05-a9b78206d075",
+                "/api/inquiries",
                 formData
             );
-            console.log("SheetBest Response:", response.data);
+            console.log("Server Response:", response.data);
             setSubmitMessage('Inquiry sent successfully! We will contact you soon.');
             setFormData({
                 name: '',

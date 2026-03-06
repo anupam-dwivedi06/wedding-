@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Photoalbum3.css'; 
+import './Photoalbum3.css';
+import { optimizeCloudinary } from '../../../utils/cloudinary'; 
 
 const imagesData = [
   { id: 1, thumb: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760552512/Agrawal25_sge2hg.jpg', full: 'https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760552512/Agrawal25_sge2hg.jpg', alt: 'Agrawal image 25' },
@@ -92,8 +93,10 @@ const TestiPhoto = () => {
                 {imagesData.map((image, index) => (
                     <img
                         key={image.id}
-                        src={image.thumb}
+                        src={optimizeCloudinary(image.full, { width: 400, crop: 'fill', q: 'auto', f: 'auto' })}
                         alt={image.alt}
+                        loading="lazy"
+                        decoding="async"
                         onClick={() => openModal(index)}
                         className="gallery-thumbnail"
                     />
@@ -105,9 +108,11 @@ const TestiPhoto = () => {
                     <span className="close-button" onClick={(e) => { e.stopPropagation(); closeModal(); }}>&times;</span>
                     <div className="modal-content-wrapper" onClick={(e) => e.stopPropagation()}> {/* Prevent closing when clicking on content */}
                         <img
-                            src={imagesData[currentImageIndex].full}
+                            src={optimizeCloudinary(imagesData[currentImageIndex].full, { q: 'auto', f: 'auto' })}
                             alt={imagesData[currentImageIndex].alt}
                             className="modal-image"
+                            loading="lazy"
+                            decoding="async"
                         />
                         <div className="modal-caption">{imagesData[currentImageIndex].alt}</div>
                         <button className="nav-button prev" onClick={() => navigateImage(-1)}>&#10094;</button>

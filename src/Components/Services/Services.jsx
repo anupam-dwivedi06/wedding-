@@ -16,7 +16,7 @@ const WorkProcess = () => {
         {/* Card 1 */}
         <div className="work-show">
           <div className="work1">
-            <img src="https://feast-it-web-prod.imgix.net/7ce97163-0293-4932-80e3-61cb8cadecbf/uQT2AK80V2/Feast_It_telling-stories-by-jacque-prates-d_0T-aR4ar.jpg?auto=format&fit=max&w=1080&q=20" alt="Work step 1" />
+            <img src="https://feast-it-web-prod.imgix.net/7ce97163-0293-4932-80e3-61cb8cadecbf/uQT2AK80V2/Feast_It_telling-stories-by-jacque-prates-d_0T-aR4ar.jpg?auto=format&fit=max&w=1080&q=20" alt="Work step 1" loading="lazy" decoding="async" />
           </div>
           <div className="work-name">
             <div className="gola">01</div>
@@ -40,7 +40,7 @@ const WorkProcess = () => {
         {/* Card 2 */}
         <div className="work-show">
           <div className="work1">
-            <img src="https://png.pngtree.com/thumb_back/fh260/background/20240522/pngtree-gorgeous-indian-bride-with-heavy-makeup-wearing-traditional-bridal-attire-and-image_15809162.jpg" alt="Work step 2" />
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20240522/pngtree-gorgeous-indian-bride-with-heavy-makeup-wearing-traditional-bridal-attire-and-image_15809162.jpg" alt="Work step 2" loading="lazy" decoding="async" />
           </div>
           <div className="work-name">
             <div className="gola">02</div>
@@ -66,7 +66,7 @@ Transforming brides into queens — with elegance and confidence:
         {/* Card 3 */}
         <div className="work-show">
           <div className="work1">
-            <img src="https://www.bayareabeatsdjs.com/wp-content/uploads/2024/05/Uplights_Outdoors_PurpleBambooAmbience.jpg" alt="Work step 3" />
+            <img src="https://www.bayareabeatsdjs.com/wp-content/uploads/2024/05/Uplights_Outdoors_PurpleBambooAmbience.jpg" alt="Work step 3" loading="lazy" decoding="async" />
           </div>
           <div className="work-name">
             <div className="gola">03</div>

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Shagun.css";
 import { useNavigate } from "react-router-dom";
+import { optimizeCloudinary } from "../../utils/cloudinary";
 
+// when using cloudinary images we only need the full URL;
+// thumbnails will be generated on the fly with a small size
 const imagesData = [
   // --- Subham ---
   {
     id: 1,
-    thumb:
-      "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham02_n7s0tn.jpg",
     full: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760551248/Subham02_n7s0tn.jpg",
     alt: "Subham image 2",
   },
@@ -407,8 +408,10 @@ const Shagun = () => {
           {imagesData.map((image, index) => (
             <img
               key={image.id}
-              src={image.thumb}
+              src={optimizeCloudinary(image.full, { width: 400, crop: "fill", q: "auto", f: "auto" })}
               alt={image.alt}
+              loading="lazy"
+              decoding="async"
               onClick={() => openModal(index)}
               className="gallery-thumbnail"
             />
@@ -431,9 +434,11 @@ const Shagun = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={imagesData[currentImageIndex].full}
+                src={optimizeCloudinary(imagesData[currentImageIndex].full, { q: "auto", f: "auto" })}
                 alt={imagesData[currentImageIndex].alt}
                 className="modal-image"
+                loading="lazy"
+                decoding="async"
               />
               <div className="modal-caption">
                 {imagesData[currentImageIndex].alt}
@@ -457,9 +462,11 @@ const Shagun = () => {
 
       <div className="shagun-img-div">
         <img
-          src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760810699/ShagunBottom_h3oo2f.jpg"
+          src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760810699/ShagunBottom_h3oo2f.jpg", { width: 1200, q: "auto", f: "auto" })}
           alt="Decorative Bottom Border"
           className="shagun-bottom-image"
+          loading="lazy"
+          decoding="async"
         />
         <div className="shagum-img-text">
           <h1>Your Dream Memories Await</h1>

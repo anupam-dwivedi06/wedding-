@@ -14,7 +14,7 @@ function Navbar() {
       <nav>
         <div className="nav-container">
           <div className="logo">
-            <img src="IMG_1130.PNG" alt="Logo" />
+            <img src="IMG_1130.PNG" alt="Logo" loading="lazy" decoding="async" />
           </div>
 
           {/* Hamburger Icon for Mobile */}

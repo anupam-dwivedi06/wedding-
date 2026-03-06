@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from "../Form/Form"
+import { optimizeCloudinary } from '../../utils/cloudinary';
 
 const styles = {
     
@@ -23,8 +24,10 @@ const NewContact = () => {
     <div style={styles.imageContainer}>
         <img 
             style={styles.headerImg} 
-            src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760609796/ContactheaderImg_yx2ed2.jpg" 
+            src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760609796/ContactheaderImg_yx2ed2.jpg", { width: 1200, q: "auto", f: "auto" })} 
             alt="Contact Page Header" 
+            loading="lazy"
+            decoding="async"
         />
     </div>
 
@@ -36,8 +39,10 @@ const NewContact = () => {
         {/* The outer div now controls the max visible area */}
         <img 
             style={styles.headerImg} 
-            src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760609939/ContactFooterImg_z2ksx3.jpg" 
+            src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760609939/ContactFooterImg_z2ksx3.jpg", { width: 1200, q: "auto", f: "auto" })} 
             alt="Contact Page Header" 
+            loading="lazy"
+            decoding="async"
         />
     </div>
     </div>

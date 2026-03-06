@@ -109,6 +109,8 @@ const VideoHero = () => {
                 src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760861674/web_logo_hrzdzy.png" 
                 alt="Company Logo"
                 className="bottom-left-logo"
+                loading="lazy"
+                decoding="async"
             />
         </div>
     );

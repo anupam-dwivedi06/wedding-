@@ -1,6 +1,7 @@
 import React from 'react';
 import './NavAbout.css';
 import { useNavigate } from 'react-router-dom';
+import { optimizeCloudinary } from '../../utils/cloudinary';
 
 function NavAbout() {
     const navigate = useNavigate();
@@ -12,16 +13,16 @@ function NavAbout() {
                 <div className="collage-column">
                     <div className="collage-wrapper">
                         <div className="collage-image-1">
-                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556064/About01_pdebmy.jpg" alt="Early setup image" />
+                            <img src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556064/About01_pdebmy.jpg", { width: 600, q: "auto", f: "auto" })} alt="Early setup image" loading="lazy" decoding="async" />
                         </div>
                         <div className="collage-image-2">
-                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556064/About02_xp1e3f.jpg" alt="Old photography setup" />
+                            <img src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556064/About02_xp1e3f.jpg", { width: 600, q: "auto", f: "auto" })} alt="Old photography setup" loading="lazy" decoding="async" />
                         </div>
                         <div className="collage-image-3">
-                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556065/About03_pzv406.jpg" alt="Current team meeting" />
+                            <img src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556065/About03_pzv406.jpg", { width: 600, q: "auto", f: "auto" })} alt="Current team meeting" loading="lazy" decoding="async" />
                         </div>
                         <div className="collage-image-4">
-                            <img src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556064/About04_jewfkj.jpg" alt="Current team meeting" />
+                            <img src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760556064/About04_jewfkj.jpg", { width: 600, q: "auto", f: "auto" })} alt="Current team meeting" loading="lazy" decoding="async" />
                         </div>
                     </div>
                 </div>
@@ -64,9 +65,11 @@ function NavAbout() {
             {/* NEW: Footer Hero Image Section */}
             <div className="footer-hero">
                 <img 
-                    src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760902908/aboutnewfooterimg_nw0ojq.jpg" 
+                    src={optimizeCloudinary("https://res.cloudinary.com/dsgdfqnbj/image/upload/v1760902908/aboutnewfooterimg_nw0ojq.jpg", { width: 1200, q: 'auto', f: 'auto' })} 
                     alt="Couple performing wedding rituals"
                     className="footer-hero-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="hero-content-overlay">
                     <p>EVERY MOMMENTS MATTERS.</p>

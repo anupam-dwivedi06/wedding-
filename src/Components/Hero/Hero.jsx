@@ -14,7 +14,7 @@ function Hero() {
 
         {/* hero section image */}
         <div className="img-container">
-            <img src="https://www.ptaufiqphotography.com/wp-content/uploads/2024/06/ptaufiq-indian-wedding-rajkot-India-ceremony-couple-portraits.jpg" alt="A couple's wedding portrait" />
+            <img src="https://www.ptaufiqphotography.com/wp-content/uploads/2024/06/ptaufiq-indian-wedding-rajkot-India-ceremony-couple-portraits.jpg" alt="A couple's wedding portrait" loading="lazy" decoding="async" />
         </div> 
 
     </div>

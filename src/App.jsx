@@ -16,6 +16,7 @@ import FAQ from "./Components/FAQ/FAQ";
 import Shagun from "./Components/Shagun/Shagun";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import Poster from "./Components/Poster/Poster";
+import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/newcontact" element={< NewContact/>} />
           <Route path="faqs" element={< FAQ />} />
           <Route path="/shagun" element={<Shagun />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
         <NewFooter />
       </Router>

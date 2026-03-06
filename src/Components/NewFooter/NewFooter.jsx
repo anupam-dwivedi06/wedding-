@@ -146,7 +146,7 @@ const SocialIcons = ({ isMobile }) => (
   target="_blank"
   rel="noopener noreferrer"
 >
-  <img src="/SVG/instaa.svg" alt="Instagram" style={styles.socialIcon} />
+  <img src="/SVG/instaa.svg" alt="Instagram" style={styles.socialIcon} loading="lazy" decoding="async" />
 </a>
 
 <a
@@ -154,7 +154,7 @@ const SocialIcons = ({ isMobile }) => (
   target="_blank"
   rel="noopener noreferrer"
 >
-  <img src="/SVG/yt.svg" alt="YouTube" style={styles.socialIcon} />
+  <img src="/SVG/yt.svg" alt="YouTube" style={styles.socialIcon} loading="lazy" decoding="async" />
 </a>
 
 <a
@@ -162,7 +162,7 @@ const SocialIcons = ({ isMobile }) => (
   target="_blank"
   rel="noopener noreferrer"
 >
-  <img src="/SVG/facebook.svg" alt="Facebook" style={styles.socialIcon} />
+  <img src="/SVG/facebook.svg" alt="Facebook" style={styles.socialIcon} loading="lazy" decoding="async" />
 </a>
 
     

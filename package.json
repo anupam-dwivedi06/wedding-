@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "kill-port 5000 && concurrently \"npm run server:dev\" \"vite\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "server:dev": "cd server && npm run dev"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
@@ -23,10 +25,12 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^8.2.0",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "kill-port": "^2.0.1",
     "vite": "^6.3.5"
   }
 }
