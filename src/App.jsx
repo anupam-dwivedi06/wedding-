@@ -37,6 +37,7 @@ function App() {
           <Route path="faqs" element={< FAQ />} />
           <Route path="/shagun" element={<Shagun />} />
           <Route path="/admin" element={<AdminDashboard />} />
+        
         </Routes>
         <NewFooter />
       </Router>
