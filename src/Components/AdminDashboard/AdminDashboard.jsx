@@ -1,6 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { FiRefreshCw, FiMapPin, FiPhone, FiMail, FiCalendar, FiUser } from "react-icons/fi";
+import { 
+  FiRefreshCw, 
+  FiMapPin, 
+  FiPhone, 
+  FiMail, 
+  FiCalendar, 
+  FiUser, 
+  FiUserCheck, 
+  FiInbox 
+} from "react-icons/fi";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
@@ -21,14 +30,13 @@ const AdminDashboard = () => {
 
       if (isMounted.current) {
         const data = Array.isArray(resp.data) ? resp.data : [];
-        const sorted = data.sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+        // Sort by newest first
+        const sorted = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setInquiries(sorted);
       }
     } catch (err) {
       if (isMounted.current) {
-        setError("Unable to connect to the server. Please try again later.");
+        setError("Database connection failed. Please try again.");
       }
     } finally {
       if (isMounted.current) setLoading(false);
@@ -48,8 +56,8 @@ const AdminDashboard = () => {
         {/* Header Section */}
         <header className="dashboard-header">
           <div className="header-text">
-            <h1 className="main-title">Inquiry Management</h1>
-            <p className="sub-title">You have {inquiries.length} total leads</p>
+            <h1 className="main-title">Admin Dashboard</h1>
+            <p className="sub-title">Managing {inquiries.length} customer inquiries</p>
           </div>
           <button 
             className={`refresh-btn ${loading ? "spinning" : ""}`} 
@@ -60,7 +68,7 @@ const AdminDashboard = () => {
           </button>
         </header>
 
-        {/* Error State */}
+        {/* Error Notification */}
         {error && (
           <div className="error-banner">
             <span className="error-icon">!</span>
@@ -68,17 +76,17 @@ const AdminDashboard = () => {
           </div>
         )}
 
-        {/* Main Content Area */}
+        {/* Main Lead Card */}
         <div className="content-card">
           {loading ? (
-            <div className="loading-state">
+            <div className="state-container">
               <div className="pulse-loader"></div>
-              <p>Fetching latest inquiries...</p>
+              <p>Fetching leads...</p>
             </div>
           ) : inquiries.length === 0 ? (
-            <div className="empty-state">
-              <div className="empty-icon">📂</div>
-              <p>No inquiries found in the database.</p>
+            <div className="state-container">
+              <FiInbox size={48} color="#cbd5e1" />
+              <p>No inquiries found in the system.</p>
             </div>
           ) : (
             <div className="inquiry-list">
@@ -86,51 +94,54 @@ const AdminDashboard = () => {
                 <div key={inq._id || index} className="inquiry-item">
                   <div className="inquiry-grid">
                     
-                    {/* User Profile Info */}
+                    {/* Column 1: Profile */}
                     <div className="col-profile">
-                      <div className="avatar-circle">
+                      <div className="avatar-box">
                         {inq.name ? inq.name.charAt(0).toUpperCase() : <FiUser />}
                       </div>
-                      <div className="user-info">
-                        <h3>{inq.name || "Anonymous Client"}</h3>
-                        <a href={`mailto:${inq.email}`} className="contact-link">
+                      <div className="user-meta">
+                        <h3>{inq.name || "New Client"}</h3>
+                        <a href={`mailto:${inq.email}`} className="email-link">
                           <FiMail /> {inq.email || "No email"}
                         </a>
                       </div>
                     </div>
 
-                    {/* Event Details */}
-                    <div className="col-details">
-                      <div className="detail-group">
-                        <span className="detail-label">Event Type</span>
-                        <span className="detail-value highlight">{inq.event || "General"}</span>
-                      </div>
-                      <div className="detail-group">
-                        <span className="detail-label">Location</span>
-                        <span className="detail-value">
-                          <FiMapPin className="icon-inline" /> {inq.location || "Not specified"}
-                        </span>
+                    {/* Column 2: Event & Referral */}
+                    <div className="col-event">
+                      <div className="data-group">
+                        <span className="label">Event Details</span>
+                        <span className="value-highlight">{inq.event || "Unspecified"}</span>
+                        {/* Referral Source Badge */}
+                        <div className="source-tag">
+                          <FiUserCheck size={12} /> {inq.referralSource || "Direct Web"}
+                        </div>
                       </div>
                     </div>
 
-                    {/* Contact Stats */}
+                    {/* Column 3: Contact & Location */}
                     <div className="col-contact">
-                      <div className="detail-group">
-                        <span className="detail-label">Phone / WhatsApp</span>
-                        <span className="detail-value">
-                          <FiPhone className="icon-inline" /> {inq.phoneWhatsApp || "N/A"}
+                      <div className="data-group">
+                        <span className="label">Contact & Location</span>
+                        <span className="value-iconic">
+                          <FiPhone /> {inq.phoneWhatsApp || "No Phone"}
+                        </span>
+                        <span className="value-subtext">
+                          <FiMapPin /> {inq.location || "N/A"}
                         </span>
                       </div>
                     </div>
 
-                    {/* Date Information */}
+                    {/* Column 4: Date Info */}
                     <div className="col-date">
-                      <div className="event-date-badge">
+                      <div className="date-badge">
                         <FiCalendar />
-                        {inq.date ? new Date(inq.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "TBD"}
+                        {inq.date ? new Date(inq.date).toLocaleDateString('en-US', { 
+                          month: 'short', day: 'numeric', year: 'numeric' 
+                        }) : "TBD"}
                       </div>
-                      <span className="timestamp">
-                        Received: {inq.createdAt ? new Date(inq.createdAt).toLocaleDateString() : "Just now"}
+                      <span className="received-text">
+                        Recieved: {inq.createdAt ? new Date(inq.createdAt).toLocaleDateString() : "Just now"}
                       </span>
                     </div>
 
