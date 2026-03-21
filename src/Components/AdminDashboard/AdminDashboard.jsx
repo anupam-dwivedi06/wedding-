@@ -20,14 +20,16 @@ const AdminDashboard = () => {
 
       if (isMountedRef.current) {
         const data = Array.isArray(resp.data) ? resp.data : [];
+
         const sorted = data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
+
         setInquiries(sorted);
       }
     } catch (err) {
       if (isMountedRef.current) {
-        setError("Connection failed.");
+        setError("Connection failed. Please check your backend.");
       }
     } finally {
       if (isMountedRef.current) setLoading(false);
@@ -44,6 +46,7 @@ const AdminDashboard = () => {
     <div className="container">
       <div className="wrapper">
 
+        {/* Header */}
         <div className="header">
           <div>
             <h1 className="title">Admin Dashboard</h1>
@@ -55,8 +58,10 @@ const AdminDashboard = () => {
           </button>
         </div>
 
+        {/* Error */}
         {error && <div className="error">⚠️ {error}</div>}
 
+        {/* Content */}
         <div className="card">
 
           {loading ? (
@@ -71,8 +76,10 @@ const AdminDashboard = () => {
           ) : (
             inquiries.map((inq, index) => (
               <div key={inq._id || index} className="inquiry">
+
                 <div className="row">
 
+                  {/* LEFT */}
                   <div className="profile">
                     <div className="avatar">
                       {inq.name?.charAt(0) || "?"}
@@ -80,11 +87,15 @@ const AdminDashboard = () => {
 
                     <div>
                       <h3>{inq.name || "Unknown Client"}</h3>
-                      <p><FiMail /> {inq.email || "No email"}</p>
+                      <p className="email">
+                        <FiMail /> {inq.email || "No email"}
+                      </p>
                     </div>
                   </div>
 
+                  {/* CENTER */}
                   <div className="details">
+
                     <div>
                       <p className="label">Event</p>
                       <p className="value">{inq.event || "N/A"}</p>
@@ -103,15 +114,18 @@ const AdminDashboard = () => {
                         <FiPhone /> {inq.phoneWhatsApp || "N/A"}
                       </p>
                     </div>
+
                   </div>
 
+                  {/* RIGHT */}
                   <div className="date">
-                    <p>
+                    <p className="date-main">
                       {inq.date
                         ? new Date(inq.date).toLocaleDateString()
                         : "TBD"}
                     </p>
-                    <p className="small">
+
+                    <p className="date-sub">
                       Received{" "}
                       {inq.createdAt
                         ? new Date(inq.createdAt).toLocaleDateString()
@@ -120,6 +134,7 @@ const AdminDashboard = () => {
                   </div>
 
                 </div>
+
               </div>
             ))
           )}
