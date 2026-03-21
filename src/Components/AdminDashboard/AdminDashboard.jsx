@@ -1,144 +1,144 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { FiRefreshCw, FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import { FiRefreshCw, FiMapPin, FiPhone, FiMail, FiCalendar, FiUser } from "react-icons/fi";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const isMounted = useRef(true);
 
-  const fetchInquiries = async (isMountedRef = { current: true }) => {
+  const fetchInquiries = async () => {
     setLoading(true);
     setError(null);
 
     try {
       const resp = await axios.get(
         "https://wedding-backend-azure.vercel.app/api/form",
-        { timeout: 5000 }
+        { timeout: 8000 }
       );
 
-      if (isMountedRef.current) {
+      if (isMounted.current) {
         const data = Array.isArray(resp.data) ? resp.data : [];
-
         const sorted = data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
-
         setInquiries(sorted);
       }
     } catch (err) {
-      if (isMountedRef.current) {
-        setError("Connection failed. Please check your backend.");
+      if (isMounted.current) {
+        setError("Unable to connect to the server. Please try again later.");
       }
     } finally {
-      if (isMountedRef.current) setLoading(false);
+      if (isMounted.current) setLoading(false);
     }
   };
 
   useEffect(() => {
-    const isMountedRef = { current: true };
-    fetchInquiries(isMountedRef);
-    return () => (isMountedRef.current = false);
+    isMounted.current = true;
+    fetchInquiries();
+    return () => { isMounted.current = false; };
   }, []);
 
   return (
-    <div className="container">
-      <div className="wrapper">
-
-        {/* Header */}
-        <div className="header">
-          <div>
-            <h1 className="title">Admin Dashboard</h1>
-            <p className="subtitle">Manage your inquiries</p>
+    <div className="dashboard-container">
+      <div className="dashboard-wrapper">
+        
+        {/* Header Section */}
+        <header className="dashboard-header">
+          <div className="header-text">
+            <h1 className="main-title">Inquiry Management</h1>
+            <p className="sub-title">You have {inquiries.length} total leads</p>
           </div>
-
-          <button className="button" onClick={() => fetchInquiries()}>
-            <FiRefreshCw /> Refresh
+          <button 
+            className={`refresh-btn ${loading ? "spinning" : ""}`} 
+            onClick={fetchInquiries}
+            disabled={loading}
+          >
+            <FiRefreshCw /> {loading ? "Updating..." : "Refresh Feed"}
           </button>
-        </div>
+        </header>
 
-        {/* Error */}
-        {error && <div className="error">⚠️ {error}</div>}
+        {/* Error State */}
+        {error && (
+          <div className="error-banner">
+            <span className="error-icon">!</span>
+            {error}
+          </div>
+        )}
 
-        {/* Content */}
-        <div className="card">
-
+        {/* Main Content Area */}
+        <div className="content-card">
           {loading ? (
-            <div className="loader">
-              <div className="spinner"></div>
-              <p>Loading Leads...</p>
+            <div className="loading-state">
+              <div className="pulse-loader"></div>
+              <p>Fetching latest inquiries...</p>
             </div>
           ) : inquiries.length === 0 ? (
-            <div className="loader">
-              <p>No inquiries found.</p>
+            <div className="empty-state">
+              <div className="empty-icon">📂</div>
+              <p>No inquiries found in the database.</p>
             </div>
           ) : (
-            inquiries.map((inq, index) => (
-              <div key={inq._id || index} className="inquiry">
-
-                <div className="row">
-
-                  {/* LEFT */}
-                  <div className="profile">
-                    <div className="avatar">
-                      {inq.name?.charAt(0) || "?"}
+            <div className="inquiry-list">
+              {inquiries.map((inq, index) => (
+                <div key={inq._id || index} className="inquiry-item">
+                  <div className="inquiry-grid">
+                    
+                    {/* User Profile Info */}
+                    <div className="col-profile">
+                      <div className="avatar-circle">
+                        {inq.name ? inq.name.charAt(0).toUpperCase() : <FiUser />}
+                      </div>
+                      <div className="user-info">
+                        <h3>{inq.name || "Anonymous Client"}</h3>
+                        <a href={`mailto:${inq.email}`} className="contact-link">
+                          <FiMail /> {inq.email || "No email"}
+                        </a>
+                      </div>
                     </div>
 
-                    <div>
-                      <h3>{inq.name || "Unknown Client"}</h3>
-                      <p className="email">
-                        <FiMail /> {inq.email || "No email"}
-                      </p>
+                    {/* Event Details */}
+                    <div className="col-details">
+                      <div className="detail-group">
+                        <span className="detail-label">Event Type</span>
+                        <span className="detail-value highlight">{inq.event || "General"}</span>
+                      </div>
+                      <div className="detail-group">
+                        <span className="detail-label">Location</span>
+                        <span className="detail-value">
+                          <FiMapPin className="icon-inline" /> {inq.location || "Not specified"}
+                        </span>
+                      </div>
                     </div>
+
+                    {/* Contact Stats */}
+                    <div className="col-contact">
+                      <div className="detail-group">
+                        <span className="detail-label">Phone / WhatsApp</span>
+                        <span className="detail-value">
+                          <FiPhone className="icon-inline" /> {inq.phoneWhatsApp || "N/A"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Date Information */}
+                    <div className="col-date">
+                      <div className="event-date-badge">
+                        <FiCalendar />
+                        {inq.date ? new Date(inq.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "TBD"}
+                      </div>
+                      <span className="timestamp">
+                        Received: {inq.createdAt ? new Date(inq.createdAt).toLocaleDateString() : "Just now"}
+                      </span>
+                    </div>
+
                   </div>
-
-                  {/* CENTER */}
-                  <div className="details">
-
-                    <div>
-                      <p className="label">Event</p>
-                      <p className="value">{inq.event || "N/A"}</p>
-                    </div>
-
-                    <div>
-                      <p className="label">Location</p>
-                      <p className="value">
-                        <FiMapPin /> {inq.location || "N/A"}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p className="label">Contact</p>
-                      <p className="value">
-                        <FiPhone /> {inq.phoneWhatsApp || "N/A"}
-                      </p>
-                    </div>
-
-                  </div>
-
-                  {/* RIGHT */}
-                  <div className="date">
-                    <p className="date-main">
-                      {inq.date
-                        ? new Date(inq.date).toLocaleDateString()
-                        : "TBD"}
-                    </p>
-
-                    <p className="date-sub">
-                      Received{" "}
-                      {inq.createdAt
-                        ? new Date(inq.createdAt).toLocaleDateString()
-                        : ""}
-                    </p>
-                  </div>
-
                 </div>
-
-              </div>
-            ))
+              ))}
+            </div>
           )}
-
         </div>
       </div>
     </div>
