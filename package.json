@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node server/index.js",
-    "server:dev": "cd server && npm run dev"
+    "server": "node shooting-backend/index.js",
+    "server:dev": "nodemon shooting-backend/index.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
@@ -31,6 +31,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "kill-port": "^2.0.1",
+    "nodemon": "^3.0.0",
     "vite": "^6.3.5"
   }
 }

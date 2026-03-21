@@ -219,10 +219,7 @@ const handleSubmit = async (e) => {
     if (validate()) {
         try {
             // send request to our own backend instead of sheetbest
-            const response = await axios.post(
-                "/api/inquiries",
-                formData
-            );
+           const response = await axios.post("wedding-backend-azure.vercel.app/api/form", formData);
             console.log("Server Response:", response.data);
             setSubmitMessage('Inquiry sent successfully! We will contact you soon.');
             setFormData({
