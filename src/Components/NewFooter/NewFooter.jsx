@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const MAP_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.8445359930465!2d74.76199179999999!3d22.208013700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3961ed9410de8dcd%3A0xea7be4ead427b739!2sUtsav%20Studio%20%26%20Graphics!5e0!3m2!1sen!2sin!4v1748750782018!5m2!1sen!2sin";
@@ -57,9 +58,10 @@ const styles = {
   logoText: {
     fontSize: "1.25rem",
     lineHeight: "1.2",
-    color: "#f0f0f0",
+    color: "#f0f0f0", // This ensures the text stays white/off-white
     fontWeight: "lighter",
     letterSpacing: "0.1em",
+    textDecoration: "none", // <--- THIS REMOVES THE UNDERLINE
   },
   logoTextLarge: {
     fontSize: "3rem",
@@ -195,14 +197,20 @@ const ContactInfo = ({ isMobile }) => (
       <p style={styles.text}>454331</p>
     </div>
 
-    {/* Branding section mirroring the custom font style from the image */}
+    
     <div style={styles.branding}>
-      <p style={styles.logoText}>शगुन</p>
-      <p style={styles.logoTextLarge}> utsav</p>
+  {/* Apply styles directly to the Link tag to override browser defaults */}
+  <Link 
+    to="/admin" 
+    style={{ textDecoration: 'none', color: 'inherit' }}
+  >
+    <p style={styles.logoText}>शगुन</p>
+  </Link>
+  
+  <p style={styles.logoTextLarge}> utsav</p>
 
-      {/* 2. SOCIAL ICONS (Shown at BOTTOM on desktop) */}
-      {!isMobile && <SocialIcons isMobile={isMobile} />}
-    </div>
+  {!isMobile && <SocialIcons isMobile={isMobile} />}
+</div>
   </div>
 );
 
