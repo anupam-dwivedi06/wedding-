@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { 
   FiRefreshCw, 
   FiMapPin, 
@@ -8,7 +9,8 @@ import {
   FiCalendar, 
   FiUser, 
   FiUserCheck, 
-  FiInbox 
+  FiInbox,
+  FiLogOut 
 } from "react-icons/fi";
 import "./AdminDashboard.css";
 
@@ -17,35 +19,69 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const isMounted = useRef(true);
+  const navigate = useNavigate();
+
+  // Determine API URL based on environment
+  const API_URL = window.location.hostname === 'localhost' 
+    ? "http://localhost:5000/api/form" 
+    : "https://wedding-backend-azure.vercel.app/api/form";
 
   const fetchInquiries = async () => {
     setLoading(true);
     setError(null);
 
+    const token = localStorage.getItem('adminToken');
+
+    if (!token) {
+      setError("No session found. Redirecting...");
+      setTimeout(() => navigate("/login"), 2000);
+      return;
+    }
+
     try {
-      const resp = await axios.get(
-        "https://wedding-backend-azure.vercel.app/api/form",
-        { timeout: 8000 }
-      );
+      const resp = await axios.get(API_URL, { 
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        timeout: 10000 // Extended timeout for cold-starts on Vercel
+      });
 
       if (isMounted.current) {
         const data = Array.isArray(resp.data) ? resp.data : [];
-        // Sort by newest first
+        // Sort by newest first (Safety check even if backend handles it)
         const sorted = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setInquiries(sorted);
       }
     } catch (err) {
+      console.error("Fetch Error Details:", err);
       if (isMounted.current) {
-        setError("Database connection failed. Please try again.");
+        if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+          setError("Session expired or invalid. Please login again.");
+          localStorage.removeItem('adminToken');
+          setTimeout(() => navigate("/login"), 3000);
+        } else if (err.code === 'ECONNABORTED') {
+          setError("Request timed out. Please refresh.");
+        } else {
+          setError("Unable to connect to database. Is the backend live?");
+        }
       }
     } finally {
       if (isMounted.current) setLoading(false);
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    navigate("/login");
+  };
+
+  // --- CRITICAL: This triggers the fetch on component load ---
   useEffect(() => {
     isMounted.current = true;
     fetchInquiries();
+    
+    // Cleanup function to prevent setting state on unmounted component
     return () => { isMounted.current = false; };
   }, []);
 
@@ -59,13 +95,18 @@ const AdminDashboard = () => {
             <h1 className="main-title">Admin Dashboard</h1>
             <p className="sub-title">Managing {inquiries.length} customer inquiries</p>
           </div>
-          <button 
-            className={`refresh-btn ${loading ? "spinning" : ""}`} 
-            onClick={fetchInquiries}
-            disabled={loading}
-          >
-            <FiRefreshCw /> {loading ? "Updating..." : "Refresh Feed"}
-          </button>
+          <div className="header-actions">
+            <button 
+              className={`refresh-btn ${loading ? "spinning" : ""}`} 
+              onClick={fetchInquiries}
+              disabled={loading}
+            >
+              <FiRefreshCw /> {loading ? "Updating..." : "Refresh Feed"}
+            </button>
+            <button className="logout-btn" onClick={handleLogout}>
+              <FiLogOut /> Logout
+            </button>
+          </div>
         </header>
 
         {/* Error Notification */}
@@ -76,9 +117,9 @@ const AdminDashboard = () => {
           </div>
         )}
 
-        {/* Main Lead Card */}
+        {/* Main Content Card */}
         <div className="content-card">
-          {loading ? (
+          {loading && inquiries.length === 0 ? (
             <div className="state-container">
               <div className="pulse-loader"></div>
               <p>Fetching leads...</p>
@@ -112,7 +153,6 @@ const AdminDashboard = () => {
                       <div className="data-group">
                         <span className="label">Event Details</span>
                         <span className="value-highlight">{inq.event || "Unspecified"}</span>
-                        {/* Referral Source Badge */}
                         <div className="source-tag">
                           <FiUserCheck size={12} /> {inq.referralSource || "Direct Web"}
                         </div>
@@ -141,7 +181,7 @@ const AdminDashboard = () => {
                         }) : "TBD"}
                       </div>
                       <span className="received-text">
-                        Recieved: {inq.createdAt ? new Date(inq.createdAt).toLocaleDateString() : "Just now"}
+                        Received: {inq.createdAt ? new Date(inq.createdAt).toLocaleDateString() : "Just now"}
                       </span>
                     </div>
 
