@@ -200,12 +200,12 @@ const ContactInfo = ({ isMobile }) => (
     
     <div style={styles.branding}>
   {/* Apply styles directly to the Link tag to override browser defaults */}
-  <Link 
+  {/* <Link 
     to="/admin" 
     style={{ textDecoration: 'none', color: 'inherit' }}
-  >
+  > */}
     <p style={styles.logoText}>शगुन</p>
-  </Link>
+  {/* </Link> */}
   
   <p style={styles.logoTextLarge}> utsav</p>
 
